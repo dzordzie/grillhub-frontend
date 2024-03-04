@@ -1,5 +1,5 @@
 <h1 align="center">GrillHub</h1>
-<h4 align="center">...in process...</h3>
+<h4 align="center">⌛...in process...</h3>
 <h3 align="center">The world's first social network for grillmasters and BBQ enthusiasts.</h3>
 
 
