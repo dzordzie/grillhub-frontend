@@ -5,7 +5,9 @@
 
 <div align="center">
   
-  <img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/logo1.jpeg" link alt="logo" width=450 height=auto />
+  <img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/logo2.jpeg" link alt="logo" width=450 height=auto />
+
+
 
   [»»»  BACKEND CODE  «««](https://github.com/dzordzie/grillhub-backend)
   
