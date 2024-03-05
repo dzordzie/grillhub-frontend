@@ -34,9 +34,14 @@
 
 ## :compass: Roadmap
 
-* [x] todo 1
-* [x] todo 2
-* [ ] todo 3
+* [x] user registration - backend
+* [ ] user registration - frontend
+* [x] user login -backend
+* [ ] user login - frontend
+* [ ] creating posts - backend
+* [ ] creating posts - frontend
+* [ ] display of all posts on the main page - backend
+* [ ] display of all posts on the main page - frontend
 
 ## :space_invader: Tech Stack
 
