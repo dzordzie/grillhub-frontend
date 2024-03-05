@@ -18,7 +18,11 @@
 
 ## :star2: About the Project
 
-<p align="center">...description soon...</p>
+<p align="center">
+  Inspired by [reddit.com](https://www.reddit.com/), this project is a forum/social network, focused on sharing grilling and BBQ recipes, techniques, and tips.<br>
+  The backend is built in Java and Spring, using security, JWT tokens, authentication, and authorization.<br>
+  The frontend is built in React.
+</p>
 
 ## :dart: Features
 - feature 1
