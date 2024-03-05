@@ -20,15 +20,17 @@
 ## :star2: About the Project
 
 <p align="center">
-  Inspired by <a href="https://www.reddit.com">reddit.com</a>, this project is a forum/social network, focused on sharing grilling and BBQ recipes, techniques, and tips.<br>
+  Inspired by <a href="https://www.reddit.com">reddit.com</a>, this project is a forum/social network, focused on sharing BBQ and grilling recipes, techniques and tips.<br>
   The backend is built in Java and Spring, using security, JWT tokens, authentication, and authorization.<br>
-  The frontend is built in React.
+  The frontend is built in HTML, CSS, JavaScript and React.js
 </p>
 
 ## :dart: Features
-- feature 1
-- feature 2
-- fewature 3
+- registration of a new user
+- user login based on roles 
+- creating, editing and deleting users posts
+- the post contains the type of meat, used spices, internal and external temperature, weight, picture, procedure and description
+- posts (meals) are displayed on the main page and the user can sort them from newest or oldest
 
 ## :compass: Roadmap
 
