@@ -2,7 +2,7 @@ import './SignUpForm.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
 
-export default function SignUpForm() {
+function SignUpForm() {
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
@@ -45,18 +45,35 @@ export default function SignUpForm() {
 		event.preventDefault()
 		const isFormValid = formRef.current.checkValidity()
 		if (isFormValid && !isFormEmpty() && terms) {
-			/* await AuthApiService.register(user)
-        .badRequest((error) => setMessageForUser(error.text))
-        .json((json) => {
-          if (json.error) {
-            setMessageForUser(json.error);
-          } else {
-            setMessageForUser(json.successMsg);
-            formRef.current.reset();
-            resetStates();
-            navigate("/login");
-          }
-        }); */
+      try {
+				const response = await fetch(
+					'http://localhost:8080/auth/registration',
+					{
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(user),
+					}
+				)
+				if (!response.ok) {
+          const error = await response.text()
+          setMessageForUser(error)
+          return
+        }
+				const json = await response.json()
+				if (json.error) {
+					setMessageForUser(json.error)
+				} else {
+					setMessageForUser(json.successMsg)
+					formRef.current.reset()
+					resetStates()
+					navigate('/login')
+				}
+			} catch (error) {
+        console.error('Error during registration:', error)
+        setMessageForUser(
+					'An error occurred during registration. Please try again later.'
+				)
+      }
 		} else if (isFormEmpty()) {
 			setMessageForUser('Please fill the form!')
 		} else if (!terms) {
@@ -70,13 +87,13 @@ export default function SignUpForm() {
 				<h1>Join us!</h1>
 			</div>
 			<form ref={formRef} onSubmit={handleSubmit}>
-				<label className='label' htmlFor='name'>
+				<label className='label' htmlFor='username'>
 					Username
 					<input
 						className='input'
-						id='name'
+						id='username'
 						type='text'
-						name='name'
+						name='username'
 						pattern='[A-Za-z0-9]{3,16}'
 						onChange={handleUser}
 						value={user.username}
@@ -160,3 +177,5 @@ export default function SignUpForm() {
 		</div>
 	)
 }
+
+export default SignUpForm
