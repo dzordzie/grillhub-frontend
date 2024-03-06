@@ -24,33 +24,33 @@
 
 ## :dart: Features
 
--   registration of a new user
--   user login based on roles
--   creating, editing and deleting users posts
--   the post contains the type of meat, used spices, internal and external temperature, weight, picture, procedure and description
--   posts (meals) are displayed on the main page and the user can sort them from newest or oldest
+- registration of a new user
+- user login based on roles
+- creating, editing and deleting users posts
+- the post contains the type of meat, used spices, internal and external temperature, weight, picture, procedure and description
+- posts (meals) are displayed on the main page and the user can sort them from newest or oldest
 
 ## :compass: Roadmap
 
 ✅ User Registration:
 
--   [x] -   backend
--   [x] -   frontend <br>
+- [x] - backend
+- [x] - frontend <br>
 
 ❌ User Login:
 
--   [x] -   backend
--   [ ] -   frontend <br>
+- [x] - backend
+- [ ] - frontend <br>
 
 ❌ Creating Posts:
 
--   [ ] -   backend
--   [ ] -   frontend <br>
+- [ ] - backend
+- [ ] - frontend <br>
 
 ❌ Display of All Posts on the Main Page:
 
--   [ ] -   backend
--   [ ] -   frontend <br>
+- [ ] - backend
+- [ ] - frontend <br>
 
 ❌ CSS Styling
 

@@ -1,10 +1,10 @@
-import LogInForm from '../components/LogInForm'
+import LogInForm from "../components/LogInForm";
 
 function LogInPage() {
-	return (
-		<div>
-			<LogInForm />
-		</div>
-	)
+  return (
+    <div>
+      <LogInForm />
+    </div>
+  );
 }
-export default LogInPage
+export default LogInPage;

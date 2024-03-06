@@ -1,8 +1,8 @@
 function ProfilePage() {
-	return (
-		<>
-			<h1>Profile page</h1>
-		</>
-	)
+  return (
+    <>
+      <h1>Profile page</h1>
+    </>
+  );
 }
-export default ProfilePage
+export default ProfilePage;
