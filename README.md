@@ -3,7 +3,7 @@
 <h3 align="center">The world's first social network for grillmasters and BBQ enthusiasts.</h3>
 
 <div align="center">
-  
+
   <img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/logo1.jpeg" link alt="logo" width=450 height=auto />
 
   <br>
@@ -37,10 +37,10 @@
 - [x] - backend
 - [x] - frontend <br>
 
-❌ User Login:
+✅ User Login:
 
-- [x] - backend
-- [ ] - frontend <br>
+-   [x] -   backend
+-   [x] -   frontend <br>
 
 ❌ Creating Posts:
 
