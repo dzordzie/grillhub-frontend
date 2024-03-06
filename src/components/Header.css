@@ -1,0 +1,66 @@
+/* TEMPORARY STYLING */
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: burlywood;
+	width: 100%;
+}
+
+.main-nav {
+	margin-right: 3rem;
+	width: 5rem;
+}
+
+.main-nav a:first-child {
+	margin-right: 2rem;
+}
+
+.logo {
+	height: 4rem;
+	width: auto;
+}
+
+.search-form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 50%;
+	height: 2.5rem;
+}
+
+.search-button {
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+.search-button img {
+	height: 1.75rem;
+	width: auto;
+}
+
+.search-input {
+	padding: 0;
+	border: none;
+	border-radius: 2rem;
+	background: none;
+	margin: 0 2rem 0 1rem;
+	height: 2.5rem;
+	width: 100%;
+}
+
+.search-input,
+textarea {
+	padding-left: 1.75rem;
+	color: #797c80;
+	background-color: #e2e8f0;
+}
+
+.search-input:focus,
+textarea:focus {
+	outline: none !important;
+	box-shadow: 0 0 0.7rem #c1c6cc;
+}

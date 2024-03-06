@@ -1,0 +1,8 @@
+/* TEMPORARY STYLING */
+
+footer {
+	background-color: aquamarine;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
