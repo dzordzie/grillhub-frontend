@@ -16,7 +16,7 @@ class ApiService {
       headers['Content-Type'] = 'application/json'
     }
     try {
-      const response = await fetch(url, endpoint)
+      const response = await fetch(url, options)
       if (!response.ok) {
         throw new Error(`Request failed: ${response.status}`)
       }
@@ -39,7 +39,7 @@ class ApiService {
   }
 
   delete(endpoint, headers = {}) {
-    return this.request(endpoint, 'DELETE', body, headers)
+    return this.request(endpoint, 'DELETE', null, headers)
   }
 }
 export default ApiService
