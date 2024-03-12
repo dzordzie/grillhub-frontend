@@ -12,6 +12,6 @@ class UserService {
   async login(user) {
     return this.apiService.post('/login', user)
   }
-
 }
-export default UserService
+const userService = new UserService()
+export default userService
