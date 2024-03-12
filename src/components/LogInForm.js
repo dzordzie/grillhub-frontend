@@ -1,6 +1,7 @@
 import './LogInForm.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
+import userService from '../services/UserService'
 
 function LogInForm() {
   const [user, setUser] = useState({
@@ -31,24 +32,11 @@ function LogInForm() {
   async function handleSubmit(event) {
     event.preventDefault()
     try {
-      const response = await fetch('http://localhost:8080/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user),
-      })
-
-      if (!response.ok) {
-        console.error('Login failed. Status:', response.status)
-        setMessageForUser('Login failed. Please check your username or password.')
-        return
-      }
-
-      const json = await response.json()
-      const token = json.token
+      const response = await userService.login(user)
+      const token = response.token
       const role = JSON.parse(atob(token.split('.')[1])).role
       formRef.current.reset()
       resetStates()
-
       localStorage.setItem('token', token)
       localStorage.setItem('role', role)
       navigate('/')

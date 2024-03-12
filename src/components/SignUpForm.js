@@ -1,6 +1,7 @@
 import './SignUpForm.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
+import userService from '../services/UserService'
 
 function SignUpForm() {
   const [user, setUser] = useState({
@@ -47,25 +48,11 @@ function SignUpForm() {
     const isFormValid = formRef.current.checkValidity()
     if (isFormValid && !isFormEmpty() && terms) {
       try {
-        const response = await fetch(
-          'http://localhost:8080/auth/registration',
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user),
-          }
-        )
-        if (!response.ok) {
-          const error = await response.text()
-          console.log(error);
-          setMessageForUser(error)
-          return
-        }
-        const json = await response.json()
-        if (json.error) {
-          setMessageForUser(json.error)
+        const response = await userService.registration(user)
+        if (response.error) {
+          setMessageForUser(response.error)
         } else {
-          setMessageForUser(json.successMsg)
+          setMessageForUser(response.successMsg)
           formRef.current.reset()
           resetStates()
           navigate('/login')
