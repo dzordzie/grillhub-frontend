@@ -1,33 +1,33 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import "./MainNavigation.css";
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import './MainNavigation.css'
 
 function MainNavigation() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const role = localStorage.getItem("role");
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+  const role = localStorage.getItem('role')
 
   function logOut() {
-    localStorage.clear();
-    navigate("/", { replace: true });
+    localStorage.clear()
+    navigate('/', { replace: true })
   }
 
-  if (token === null) {
+  if (!token || token === null || token === 'null') {
     return (
-      <nav className="main-nav">
-        <NavLink to="/login">LogIn</NavLink>
+      <nav className='main-nav'>
+        <NavLink to='/login'>LogIn</NavLink>
       </nav>
-    );
+    )
   }
 
-  if (role === "USER") {
+  if (role === 'USER') {
     return (
-      <nav className="main-nav">
-        <NavLink to="/profile">Profile</NavLink>
-        <Link to="/" onClick={logOut}>
+      <nav className='main-nav'>
+        <NavLink to='/profile'>Profile</NavLink>
+        <Link to='/' onClick={logOut}>
           ✕
         </Link>
       </nav>
-    );
+    )
   }
 }
-export default MainNavigation;
+export default MainNavigation

@@ -1,5 +1,24 @@
 /* TEMPORARY STYLING */
 
-aside {
-  background-color: blue;
+.sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  background-color: var(--light);
+  border-right: 0.25rem double var(--semilight);
+}
+
+.side-heading {
+  font-size: 1.75;
+  margin-top: 3rem;
+  font-weight: 800;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 0.25rem double var(--dark);
+}
+
+.side-navigation {
+  margin-top: 3rem;
 }

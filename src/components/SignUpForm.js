@@ -57,6 +57,7 @@ function SignUpForm() {
         )
         if (!response.ok) {
           const error = await response.text()
+          console.log(error);
           setMessageForUser(error)
           return
         }

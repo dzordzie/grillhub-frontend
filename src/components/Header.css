@@ -4,8 +4,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: burlywood;
-  width: 100%;
+  background-color: var(--light);
+  border-bottom: 0.25rem double var(--semilight);
 }
 
 .main-nav {
