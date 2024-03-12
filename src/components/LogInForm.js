@@ -4,7 +4,7 @@ import { useState, useRef } from 'react'
 
 function LogInForm() {
   const [user, setUser] = useState({
-    email: '',
+    username: '',
     password: '',
   })
   const [showPassword, setShowPassword] = useState(false)
@@ -23,7 +23,7 @@ function LogInForm() {
 
   function resetStates() {
     setUser({
-      email: '',
+      username: '',
       password: '',
     })
   }
@@ -39,7 +39,7 @@ function LogInForm() {
 
       if (!response.ok) {
         console.error('Login failed. Status:', response.status)
-        setMessageForUser('Login failed. Please check your credentials.')
+        setMessageForUser('Login failed. Please check your username or password.')
         return
       }
 
@@ -66,13 +66,13 @@ function LogInForm() {
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className='input-box'>
           <input
-            id='email'
-            type='email'
+            id='username'
+            type='username'
             required
-            name='email'
+            name='username'
             onChange={handleUser}
-            value={user.email}
-            placeholder='Email'
+            value={user.username}
+            placeholder='Username'
           />
         </div>
         <div className='input-box'>
