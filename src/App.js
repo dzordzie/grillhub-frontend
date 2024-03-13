@@ -6,18 +6,20 @@ import RegisterPage from './pages/RegisterPage'
 import LogInPage from './pages/LogInPage'
 import ProfilePage from './pages/ProfilePage'
 import MealPage from './pages/MealPage'
+import BestBar from './components/BestBar'
 
 function App() {
   return (
-    <div className='container'>
+    <div className='grid-container'>
       <Header />
-      <main className='main'>
+      <main className='sub-grid-container'>
         <Routes>
           <Route path='/' element={<MealPage />} />
           <Route path='/registration' element={<RegisterPage />} />
           <Route path='/login' element={<LogInPage />} />
           <Route path='/profile' element={<ProfilePage />} />
         </Routes>
+        <BestBar />
       </main>
       <SideBar />
     </div>

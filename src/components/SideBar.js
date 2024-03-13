@@ -6,7 +6,7 @@ function SideBar() {
     <aside className='sidebar'>
       <h1 className='side-heading'>MAIN CATEGORIES</h1>
       <nav className='side-navigation'>
-        <ul>
+        <ul className='filter-tems'>
           <li>BEEF</li>
           <li>PORK</li>
           <li>LAMB</li>

@@ -5,17 +5,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: auto;
+  height: 100%;
   background-color: var(--light);
   border-right: 0.25rem double var(--semilight);
 }
 
+footer {
+  position: absolute;
+  bottom: 0.625rem;
+  font-size: 0.625rem;
+  text-align: center;
+}
+
 .side-heading {
-  font-size: 1.75;
+  font-size: 1.75rem;
   margin-top: 3rem;
   font-weight: 800;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 0.5rem;
   border-bottom: 0.25rem double var(--dark);
 }
 

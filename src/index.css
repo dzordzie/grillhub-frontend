@@ -27,14 +27,20 @@ li {
   list-style: none;
 }
 
-.container {
+button {
+  border: none;
+  background: none;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-optical-sizing: auto;
+}
+
+.grid-container {
   display: grid;
   width: 100vw;
   height: 100vh;
   grid-template-areas:
     'header header'
-    'sidebar main'
-    'footer footer';
+    'sidebar main';
   grid-template-columns: 25rem auto;
   grid-template-rows: 5rem auto;
 }
@@ -47,17 +53,23 @@ li {
   grid-area: sidebar;
 }
 
-.main {
+.sub-grid-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas: "posts bestbar";
+  grid-template-columns: auto 25rem;
   grid-area: main;
   overflow: auto;
 }
 
-.footer {
-  grid-area: footer;
+.best-bar {
+  grid-area: bestbar;
 }
 
 .posts {
-  max-width: 960px;
+  grid-area: posts;
+  max-width: 800px;
   margin: 5rem auto;
   padding: 0 5rem;
 }

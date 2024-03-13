@@ -17,9 +17,10 @@
 }
 
 .post:hover {
-  transform: scale(1.005);
-  transition: transform .01s;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  outline: 0.4rem double var(--dark);
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .about {
@@ -32,6 +33,12 @@
   height: 17rem;
   width: auto;
   outline: 0.4rem double var(--semilight);
+}
+
+.picture:hover {
+  transform: scale(1.005);
+  transition: transform 0.01s;
+  outline: 0.4rem double var(--grey);
 }
 
 .meal-name {

@@ -1,0 +1,81 @@
+.best-bar-wrapper {
+  position: sticky;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--semilight);
+  padding: 2rem;
+  margin-right: 5rem;
+  outline: 0.2rem dashed var(--dark);
+  outline-offset: -0.625rem;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.best-heading {
+  align-self: center;
+  font-size: 1.75;
+  font-weight: 800;
+  padding: 0 0.5rem;
+  border-bottom: 0.25rem double var(--dark);
+}
+
+.best-members {
+  margin-top: 1.5rem;
+}
+
+.best-member {
+  padding: 0.75rem;
+}
+
+.best-member:hover {
+  background-color: #f2f2f256;
+}
+
+.best-member a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+
+.member-info {
+  margin-left: 1rem;
+}
+
+.member-info h4 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.member-info p {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.flame {
+  position: relative;
+  top: 0.2rem;
+  height: 1rem;
+}
+
+.profile-picture {
+  width: 2rem;
+}
+
+.show-btn {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.75rem 1rem;
+  color: var(--light);
+  background-color: var(--grey);
+  cursor: pointer;
+}
+
+.show-btn:hover {
+  background-color: var(--light);
+  color: var(--dark);
+  font-weight: 800;
+}
