@@ -20,6 +20,7 @@ header {
 .logo {
   height: 4rem;
   width: auto;
+  margin-left: 5rem;
 }
 
 .search-form {

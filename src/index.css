@@ -2,71 +2,62 @@
 :root {
   --dark: #1b1b1b;
   --semidark: #595959;
-  --grey: #8C8C8C;
-  --semilight: #D9D9D9;
-  --light: #F2F2F2;
+  --grey: #8c8c8c;
+  --semilight: #d9d9d9;
+  --light: #f2f2f2;
 }
-
 
 * {
   margin: 0;
   padding: 0;
 }
 
-
 body {
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: 'Merriweather Sans', sans-serif;
   font-optical-sizing: auto;
   color: var(--dark);
   background-color: var(--light);
 }
 
- a {
-  text-decoration: none;
+a {
   color: inherit;
- }
+}
 
- li {
+li {
   list-style: none;
- }
-
+}
 
 .container {
   display: grid;
   width: 100vw;
   height: 100vh;
   grid-template-areas:
-    "header header"
-    "sidebar main"
-    "footer footer";
+    'header header'
+    'sidebar main'
+    'footer footer';
   grid-template-columns: 25rem auto;
   grid-template-rows: 5rem auto;
-
-}
-.container > div {
-  border: 1px dashed var(--semidark);
 }
 
 .header {
   grid-area: header;
 }
+
 .sidebar {
   grid-area: sidebar;
 }
+
 .main {
   grid-area: main;
   overflow: auto;
 }
+
 .footer {
   grid-area: footer;
 }
 
 .posts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 60%;
-  margin-left: 5rem;
-  margin-right: 5rem;
-  margin-top: 5rem;
+  max-width: 960px;
+  margin: 5rem auto;
+  padding: 0 5rem;
 }
