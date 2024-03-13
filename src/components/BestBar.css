@@ -52,6 +52,7 @@
 .member-info p {
   font-size: 0.7rem;
   font-weight: 300;
+  color: var(--semidark);
 }
 
 .flame {
@@ -62,6 +63,7 @@
 
 .profile-picture {
   width: 2rem;
+  height: auto;
 }
 
 .show-btn {
