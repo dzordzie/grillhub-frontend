@@ -9,61 +9,61 @@ function BestBar() {
       <div className='best-bar-wrapper'>
         <h2 className='best-heading'>BEST PITMASTERS</h2>
         <ul className='best-members'>
-          <li className='best-member'>
-            <Link>
+          <li>
+            <Link to='/login' className='best-member'>
               <img className='profile-picture' src={profilePicture} alt='' />
               <div className='member-info'>
-                <h4>Sir-Grill-A-Lot</h4>
-                <p>
-                  <img className='flame' src={flame} />
+                <h4 className='member-name'>Sir-Grill-A-Lot</h4>
+                <p className='member-score'>
+                  <img className='flame' src={flame} alt='' />
                   2,879
                 </p>
               </div>
             </Link>
           </li>
-          <li className='best-member'>
-            <Link>
+          <li>
+            <Link className='best-member'>
               <img className='profile-picture' src={profilePicture} alt='' />
               <div className='member-info'>
-                <h4>lenkaGrilenka</h4>
-                <p>
-                  <img className='flame' src={flame} />
+                <h4 className='member-name'>lenkaGrilenka</h4>
+                <p className='member-score'>
+                  <img className='flame' src={flame} alt='' />
                   1,234
                 </p>
               </div>
             </Link>
           </li>
-          <li className='best-member'>
-            <Link>
+          <li>
+            <Link className='best-member'>
               <img className='profile-picture' src={profilePicture} alt='' />
               <div className='member-info'>
-                <h4>juraj123</h4>
-                <p>
-                  <img className='flame' src={flame} />
+                <h4 className='member-name'>juraj123</h4>
+                <p className='member-score'>
+                  <img className='flame' src={flame} alt='' />
                   976
                 </p>
               </div>
             </Link>
           </li>
-          <li className='best-member'>
-            <Link>
+          <li>
+            <Link className='best-member'>
               <img className='profile-picture' src={profilePicture} alt='' />
               <div className='member-info'>
-                <h4>frantisek321</h4>
-                <p>
-                  <img className='flame' src={flame} />
+                <h4 className='member-name'>frantisek321</h4>
+                <p className='member-score'>
+                  <img className='flame' src={flame} alt='' />
                   823
                 </p>
               </div>
             </Link>
           </li>
-          <li className='best-member'>
-            <Link>
+          <li>
+            <Link className='best-member'>
               <img className='profile-picture' src={profilePicture} alt='' />
               <div className='member-info'>
-                <h4>filipe78</h4>
-                <p>
-                  <img className='flame' src={flame} />
+                <h4 className='member-name'>filipe78</h4>
+                <p className='member-score'>
+                  <img className='flame' src={flame} alt='' />
                   573
                 </p>
               </div>

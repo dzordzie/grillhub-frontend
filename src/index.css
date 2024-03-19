@@ -13,10 +13,15 @@
 }
 
 body {
-  font-family: 'Merriweather Sans', sans-serif;
-  font-optical-sizing: auto;
+  font-family: 'Lusitana', serif;
   color: var(--dark);
   background-color: var(--light);
+}
+
+h1,
+h2,
+a {
+  font-family: 'Young Serif', serif;
 }
 
 a {
@@ -58,7 +63,7 @@ button {
   width: 100%;
   height: 100%;
   grid-template-areas: 'posts bestbar';
-  grid-template-columns: auto 25rem;
+  grid-template-columns: auto 24rem;
   grid-area: main;
   overflow: auto;
 }
@@ -69,7 +74,7 @@ button {
 
 .posts {
   grid-area: posts;
-  max-width: 800px;
-  margin: 5rem auto;
-  padding: 0 5rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
 }

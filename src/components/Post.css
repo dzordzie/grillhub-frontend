@@ -1,51 +1,109 @@
+.post-wrapper {
+  max-width: 800px;
+  padding: 0 5rem;
+  padding-bottom: 4.2rem;
+  border-bottom: 0.15rem dashed var(--semilight);
+}
+
+.post-wrapper:last-child {
+  border-bottom: none;
+}
+
 .post {
-  display: flex;
-  flex-direction: row;
   position: relative;
-  padding: 3rem;
   margin-top: 5rem;
+  padding: 3rem;
   outline: 0.4rem double var(--semidark);
   outline-offset: -0.35rem;
 }
 
-.post:first-child {
-  margin-top: 0;
-}
-
-.post:last-child {
-  margin-bottom: 5rem;
-}
-
 .post:hover {
   outline: 0.4rem double var(--dark);
+  background-color: #d9d9d918;
   box-shadow:
-    rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    0 0.1875rem 0.375rem rgba(0, 0, 0, 0.16),
+    0 0.1875rem 0.375rem rgba(0, 0, 0, 0.23);
 }
 
-.about {
-  display: flex;
-  flex-direction: column;
-  margin-left: 2rem;
+.meal-info {
+  display: grid;
+  grid-template-areas:
+    'meal-picture meal-description'
+    'meal-picture post-footer';
+  grid-template-rows: 14rem 3rem;
+  grid-template-columns: 17rem auto;
+  column-gap: 2rem;
 }
 
-.picture {
-  height: 17rem;
-  width: auto;
+.meal-picture {
+  grid-area: meal-picture;
+  max-height: 17rem;
+  max-width: 17rem;
   outline: 0.4rem double var(--semilight);
 }
 
-.picture:hover {
-  transform: scale(1.005);
-  transition: transform 0.01s;
-  outline: 0.4rem double var(--grey);
+.meal-description {
+  grid-area: meal-description;
+}
+
+.meal-description::first-letter {
+  initial-letter: 2;
+  font-weight: 700;
+  margin-right: 0.25rem;
 }
 
 .meal-name {
   background-color: var(--light);
+  color: var(--dark);
   font-size: 2rem;
   position: absolute;
-  padding: 0 0.5rem 0 0.5rem;
-  top: -1.25rem;
-  left: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  top: -1.6rem;
+  left: 1.5rem;
+  outline: 0.2rem dashed var(--grey);
+  outline-offset: -0.2rem;
+}
+
+.post:hover .meal-name {
+  transform: scale(1.025);
+  transition: transform 0.1s;
+  cursor: pointer;
+}
+
+.post-footer {
+  grid-area: post-footer;
+  font-size: 0.85rem;
+  font-weight: 300;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.25rem;
+  align-items: end;
+}
+
+.post-footer a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.post-footer a:hover {
+  text-decoration: underline dashed var(--grey);
+  text-underline-offset: 0.175rem;
+  text-decoration-thickness: 0.0625rem;
+}
+
+.meal-ratings {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.meal-ratings img {
+  height: 1.375rem;
+  margin-right: 0.375rem;
+}
+
+.created-at,
+.created-by {
+  text-align: right;
 }
