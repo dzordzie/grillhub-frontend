@@ -20,9 +20,10 @@
   Inspired by <a href="https://www.reddit.com">reddit.com</a>, this project is a forum/social network, focused on sharing BBQ and grilling recipes, techniques and tips.<br>
   The backend is built in Java and Spring, using security, JWT tokens, authentication, and authorization.<br>
   The frontend is built in HTML, CSS, JavaScript and React.js
+  <img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/alpha-styling.jpg" link alt="layout" width=900 height=auto />
 </p>
 
-<img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/alpha-styling.jpg" link alt="layout" width=450 height=auto />
+
 
 ## :dart: Features
 
