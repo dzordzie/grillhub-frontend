@@ -22,6 +22,8 @@
   The frontend is built in HTML, CSS, JavaScript and React.js
 </p>
 
+<img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/alpha-styling.jpg" link alt="layout" width=450 height=auto />
+
 ## :dart: Features
 
 - registration of a new user
