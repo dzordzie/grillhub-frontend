@@ -42,21 +42,23 @@
 - [x] -   backend
 - [x] -   frontend <br>
 
-❌ Display of All Posts on the Main Page:
+✅ Display of All Posts on the Main Page:
 
 - [x] - backend
 - [x] - frontend <br>
 
-❌ CSS Styling
+✅ CSS Styling
 
 - [x] - alpha version
+- [ ] - beta version
+- [ ] - final version
 
 ❌ Creating Posts:
 
 - [ ] - backend
 - [ ] - frontend <br>
 
-...
+...more things are on the way...
 
 ## :space_invader: Tech Stack
 
