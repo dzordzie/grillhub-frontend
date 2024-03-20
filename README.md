@@ -39,20 +39,24 @@
 
 ✅ User Login:
 
--   [x] -   backend
--   [x] -   frontend <br>
+- [x] -   backend
+- [x] -   frontend <br>
+
+❌ Display of All Posts on the Main Page:
+
+- [x] - backend
+- [x] - frontend <br>
+
+❌ CSS Styling
+
+- [x] - alpha version
 
 ❌ Creating Posts:
 
 - [ ] - backend
 - [ ] - frontend <br>
 
-❌ Display of All Posts on the Main Page:
-
-- [ ] - backend
-- [ ] - frontend <br>
-
-❌ CSS Styling
+...
 
 ## :space_invader: Tech Stack
 
