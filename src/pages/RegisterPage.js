@@ -2,9 +2,9 @@ import SignUpForm from "../components/SignUpForm";
 
 function RegisterPage() {
   return (
-    <div>
+    <div className='content'>
       <SignUpForm />
     </div>
-  );
+  )
 }
 export default RegisterPage;

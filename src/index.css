@@ -42,20 +42,19 @@ button {
   width: 100vw;
   height: 100vh;
   grid-template-areas:
-    'header header'
-    'sidebar main';
+    'header'
+    'main';
+  grid-template-rows: 4rem auto;
 }
 
 .header {
   grid-area: header;
-  height: 4rem;
 }
 
-.sidebar {
+/* .sidebar {
   grid-area: sidebar;
-  width: 20rem;
   height: 100%;
-}
+} */
 
 /* .sub-grid-container {
   display: grid;
@@ -70,13 +69,14 @@ button {
 .sub-grid-container {
   grid-area: main;
   display: flex;
-  overflow: auto;
+  overflow-y: scroll;
+  margin-left: 1rem;
+  scrollbar-gutter: stable;
 }
 
-.posts {
+.content {
   max-width: 60rem;
   width: 100%;
   margin: 0 auto;
-  /* grid-area: posts; */
-  padding: 0 2rem;
+  padding: 0 22rem;
 }

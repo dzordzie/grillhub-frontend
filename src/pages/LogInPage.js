@@ -2,7 +2,7 @@ import LogInForm from "../components/LogInForm";
 
 function LogInPage() {
   return (
-    <div>
+    <div className='content'>
       <LogInForm />
     </div>
   );

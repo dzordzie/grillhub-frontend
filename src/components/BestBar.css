@@ -1,20 +1,18 @@
 .best-bar {
-  position: sticky;
-  top: 5rem;
-  align-self: flex-start;
-  max-width: 18.75rem;
+  position: absolute;
+  top: 9rem;
+  right: 5rem;
+  max-width: 17rem;
   width: 100%;
   margin-left: 2rem;
-  margin-right: 4rem;
 }
 
 .best-bar-wrapper {
-
   display: flex;
   flex-direction: column;
   background-color: var(--semilight);
-  padding: 2rem;
-  outline: 0.2rem dashed var(--dark);
+  padding: 1.75rem;
+  outline: 0.175rem dashed var(--dark);
   outline-offset: -0.625rem;
   box-shadow:
     rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -23,13 +21,13 @@
 
 .best-heading {
   align-self: center;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   padding: 0 0.5rem;
   border-bottom: 0.25rem double var(--dark);
 }
 
 .best-members {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .best-member:hover,
@@ -42,7 +40,7 @@
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  padding: 0.625rem;
+  padding: 0.5rem;
 }
 
 .member-info {
@@ -51,32 +49,32 @@
 }
 
 .member-name {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 400;
 }
 
 .member-score {
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   color: var(--semidark);
 }
 
 .flame {
   position: relative;
   top: 0.2rem;
-  height: 1rem;
+  height: 0.75rem;
   margin-right: 0.3rem;
 }
 
 .profile-picture {
-  width: 2rem;
+  width: 1.75rem;
   height: auto;
 }
 
 .show-btn {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   font-family: 'Young Serif', serif;
-  font-size: 0.875rem;
-  padding: 0.75rem;
+  font-size: 0.75rem;
+  padding: 0.5rem;
   color: var(--light);
   background-color: var(--grey);
   cursor: pointer;
