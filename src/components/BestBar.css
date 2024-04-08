@@ -1,4 +1,7 @@
 .best-bar {
+  position: sticky;
+  top: 5rem;
+  align-self: flex-start;
   max-width: 18.75rem;
   width: 100%;
   margin-left: 2rem;
@@ -6,8 +9,7 @@
 }
 
 .best-bar-wrapper {
-  position: sticky;
-  top: 5rem;
+
   display: flex;
   flex-direction: column;
   background-color: var(--semilight);
@@ -84,5 +86,4 @@
 .show-btn:active {
   background-color: var(--light);
   color: var(--dark);
-  font-weight: 800;
 }
