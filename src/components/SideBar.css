@@ -11,6 +11,10 @@
   align-items: center;
   text-align: left;
   background-color: var(--light);
+  background-image: url(../assets/grill-semilight.svg);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: right 50% bottom -0.1rem;
   border-right: 0.25rem double var(--semilight);
 }
 
