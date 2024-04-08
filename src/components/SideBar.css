@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   text-align: left;
-  height: 100%;
+  
   background-color: var(--light);
   border-right: 0.25rem double var(--semilight);
 }

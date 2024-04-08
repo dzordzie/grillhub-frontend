@@ -1,5 +1,5 @@
 .post-wrapper {
-  max-width: 800px;
+  
   padding: 0 5rem;
   padding-bottom: 4.2rem;
   border-bottom: 0.15rem dashed var(--semilight);
@@ -17,7 +17,8 @@
   outline-offset: -0.35rem;
 }
 
-.post:hover {
+.post:hover,
+.post:active {
   outline: 0.4rem double var(--dark);
   background-color: #d9d9d918;
   box-shadow:
@@ -64,7 +65,8 @@
   outline-offset: -0.2rem;
 }
 
-.post:hover .meal-name {
+.post:hover .meal-name,
+.post:active .meal-name {
   transform: scale(1.025);
   transition: transform 0.1s;
   cursor: pointer;
@@ -86,7 +88,8 @@
   text-decoration: none;
 }
 
-.post-footer a:hover {
+.post-footer a:hover,
+.post-footer a:active {
   text-decoration: underline dashed var(--grey);
   text-underline-offset: 0.175rem;
   text-decoration-thickness: 0.0625rem;

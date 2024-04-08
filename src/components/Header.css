@@ -1,9 +1,6 @@
-/* TEMPORARY STYLING */
-
-header {
+.header {
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 25rem auto 25rem;
+  grid-template-columns: 20% 60% 20%;
   align-items: center;
   background-color: var(--light);
   border-bottom: 0.25rem double var(--semilight);
@@ -21,7 +18,8 @@ header {
   font-weight: 800;
 }
 
-.home-link:hover {
+.home-link:hover,
+.home-link:active {
   text-decoration: underline dashed var(--grey);
   text-underline-offset: 0.5rem;
   text-decoration-thickness: 0.15rem;
@@ -56,12 +54,16 @@ header {
 
 .search-input,
 textarea {
-  color: #797c80;
-  background-color: #e2e8f0;
+  color: var(--grey);
+  background-color: var(--semilight);
+  outline: 0.125rem dashed var(--light);
+  outline-offset: -0.375rem;
 }
 
 .search-input:focus,
-textarea:focus {
-  outline: none !important;
-  box-shadow: 0 0 0.7rem #c1c6cc;
+.search-input:hover,
+textarea:focus,
+textarea:hover {
+  outline: 0.125rem dashed var(--grey);
+  outline-offset: -0.375rem;
 }

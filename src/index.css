@@ -35,8 +35,6 @@ li {
 button {
   border: none;
   background: none;
-  font-family: 'Merriweather Sans', sans-serif;
-  font-optical-sizing: auto;
 }
 
 .grid-container {
@@ -46,19 +44,20 @@ button {
   grid-template-areas:
     'header header'
     'sidebar main';
-  grid-template-columns: 25rem auto;
-  grid-template-rows: 5rem auto;
 }
 
 .header {
   grid-area: header;
+  height: 4rem;
 }
 
 .sidebar {
   grid-area: sidebar;
+  width: 20rem;
+  height: 100%;
 }
 
-.sub-grid-container {
+/* .sub-grid-container {
   display: grid;
   width: 100%;
   height: 100%;
@@ -66,15 +65,18 @@ button {
   grid-template-columns: auto 24rem;
   grid-area: main;
   overflow: auto;
-}
+} */
 
-.best-bar {
-  grid-area: bestbar;
+.sub-grid-container {
+  grid-area: main;
+  display: flex;
+  overflow: auto;
 }
 
 .posts {
-  grid-area: posts;
-  max-width: 100%;
+  max-width: 60rem;
+  width: 100%;
   margin: 0 auto;
+  /* grid-area: posts; */
   padding: 0 2rem;
 }
