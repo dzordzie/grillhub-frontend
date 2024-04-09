@@ -26,12 +26,12 @@
 }
 
 .main-nav {
-  margin-right: 3rem;
+  margin-right: 5rem;
   text-align: end;
 }
 
-.main-nav a:first-child {
-  margin-right: 2rem;
+.main-nav a:nth-child(2) {
+  margin-left: 2rem;
 }
 
 .search-form {
