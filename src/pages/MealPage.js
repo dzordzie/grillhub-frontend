@@ -12,7 +12,7 @@ function MealPage() {
       setLoading(true)
       /* const token = localStorage.getItem('token') */
 
-      fetch('http://localhost:8080/meals', {
+      fetch('http://localhost:8080/', {
         headers: {
           /* Authorization: `Bearer ${token}`, */
           'Content-Type': 'application/json',
