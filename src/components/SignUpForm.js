@@ -52,16 +52,14 @@ function SignUpForm() {
         if (response.error) {
           setMessageForUser(response.error)
         } else {
-          setMessageForUser(response.successMsg)
+          setMessageForUser(response.message)
           formRef.current.reset()
           resetStates()
           navigate('/login')
         }
       } catch (error) {
         console.error('Error during registration:', error)
-        setMessageForUser(
-          'An error occurred during registration. Please try again later.'
-        )
+        setMessageForUser('Sorry something went wrong. Please try again later.')
       }
     } else if (isFormEmpty()) {
       setMessageForUser('Please fill the form!')

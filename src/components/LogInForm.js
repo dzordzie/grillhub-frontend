@@ -42,9 +42,7 @@ function LogInForm() {
       navigate('/')
     } catch (error) {
       console.error('Error during login:', error)
-      setMessageForUser(
-        'An error occurred during login. Please try again later.'
-      )
+      setMessageForUser('Sorry something went wrong. Please try again later.')
     }
   }
 
