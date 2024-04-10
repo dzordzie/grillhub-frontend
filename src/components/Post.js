@@ -12,9 +12,10 @@ import shrimpImg from '../assets/seafood-semilight.svg'
 
 function Post({ post }) {
   const {
+    id,
     name,
     description,
-    meatDTO: { meatType },
+    meatType,
     createdByUser: { username },
     createdAt,
   } = post
@@ -40,7 +41,9 @@ function Post({ post }) {
   return (
     <div className='post-wrapper'>
       <article className='post' style={postStyles}>
-        <h1 className='meal-name'>{name}</h1>
+        <Link to={`/meal/${id}`} className='news-link'>
+          <h1 className='meal-name'>{name}</h1>
+        </Link>
         <div className='meal-info'>
           <img src={picture} alt='beef' className='meal-picture' />
           <p className='meal-description'>{description.slice(0, 350)}...</p>
