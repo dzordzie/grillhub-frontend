@@ -1,54 +1,54 @@
-import { useEffect, useState } from 'react'
-import Post from '../components/Post'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import Meal from '../components/Meal'
 import BestBar from '../components/BestBar'
 
 function MealPage() {
-  const [meals, setMeals] = useState([])
+  const { id } = useParams()
+  const [meal, setMeal] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    function fetchMeals() {
+    async function fetchMealData() {
       setLoading(true)
       /* const token = localStorage.getItem('token') */
 
-      fetch('http://localhost:8080/', {
-        headers: {
-          /* Authorization: `Bearer ${token}`, */
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`)
-          }
-          return response.json()
+      try {
+        const response = await fetch(`http://localhost:8080/meal/${id}`, {
+          headers: {
+            /* Authorization: `Bearer ${token}`, */
+            'Content-Type': 'application/json',
+          },
         })
-        .then((json) => {
-          setMeals(json)
-        })
-        .catch((error) => {
-          setError(error)
-          console.error('Loading meals error:', error)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
+        if (!response.ok) {
+          const errorData = await response.json()
+          setError(errorData.message)
+        } else {
+          const mealData = await response.json()
+          setMeal(mealData)
+        }
+      } catch (errorMessage) {
+        setError(errorMessage)
+        console.error('Loading meal error:', error)
+      } finally {
+        setLoading(false)
+      }
     }
-    fetchMeals()
-  }, [])
+    fetchMealData()
+  }, [id, error])
 
   return (
     <>
       <div className='content'>
         {loading ? (
-          <h2>Loading meals...</h2>
+          <h2>Loading meal...</h2>
         ) : error ? (
-          <h2>Error: {error.message}</h2>
-        ) : meals.length > 0 ? (
-          meals.map((meal) => <Post key={meal.id} post={meal} />)
+          <h2>{error}</h2>
+        ) : meal ? (
+          <Meal meal={meal} />
         ) : (
-          <h2>Nothing cooked yet :(</h2>
+          <p>Nothing is here :(</p>
         )}
       </div>
       <BestBar />
