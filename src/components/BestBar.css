@@ -44,7 +44,6 @@
 }
 
 .member-info {
-  margin-left: 1rem;
   font-family: 'Lusitana', serif;
 }
 
@@ -68,20 +67,5 @@
 .profile-picture {
   width: 1.75rem;
   height: auto;
-}
-
-.show-btn {
-  margin-top: 0.75rem;
-  font-family: 'Young Serif', serif;
-  font-size: 0.75rem;
-  padding: 0.5rem;
-  color: var(--light);
-  background-color: var(--grey);
-  cursor: pointer;
-}
-
-.show-btn:hover,
-.show-btn:active {
-  background-color: var(--light);
-  color: var(--dark);
+  margin: 0 1rem 0 0.5rem;
 }

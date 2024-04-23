@@ -32,21 +32,19 @@ function Post({ post }) {
   const backgroundImage = meatTypeToImage[meatType] || beefImg
 
   const postStyles = {
-    backgroundImage: `url(${backgroundImage})`,
+    background: `url(${backgroundImage}) right 1rem bottom 0.2rem no-repeat`,
     backgroundSize: 'auto 45%',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'right 1rem bottom 0.2rem',
   }
 
   return (
     <div className='post-wrapper'>
       <article className='post' style={postStyles}>
-        <Link to={`/meal/${id}`} className='news-link'>
+        <Link to={`/meal/${id}`}>
           <h1 className='meal-name'>{name}</h1>
         </Link>
-        <div className='meal-info'>
+        <div className='meal-summary'>
           <img src={picture} alt='beef' className='meal-picture' />
-          <p className='meal-description'>{description.slice(0, 350)}...</p>
+          <p className='post-description'>{description.slice(0, 350)}...</p>
           <footer className='post-footer'>
             <p>
               category: <Link>{meatType}</Link>

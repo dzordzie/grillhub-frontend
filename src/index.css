@@ -68,7 +68,6 @@ button {
 
 .sub-grid-container {
   grid-area: main;
-  display: flex;
   overflow-y: scroll;
   margin-left: 1rem;
   scrollbar-gutter: stable;
@@ -79,4 +78,17 @@ button {
   width: 100%;
   margin: 0 auto;
   padding: 0 22rem;
+  transform-origin: 50vw 50vh;
+  animation: zoomIn 0.2s linear;
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

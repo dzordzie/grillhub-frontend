@@ -40,17 +40,15 @@ function MealPage() {
 
   return (
     <>
-      <div className='content'>
-        {loading ? (
-          <h2>Loading meal...</h2>
-        ) : error ? (
-          <h2>{error}</h2>
-        ) : meal ? (
-          <Meal meal={meal} />
-        ) : (
-          <p>Nothing is here :(</p>
-        )}
-      </div>
+      {loading ? (
+        <h2>Loading meal...</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : meal ? (
+        <Meal meal={meal} />
+      ) : (
+        <p>Nothing is here :(</p>
+      )}
       <BestBar />
     </>
   )
