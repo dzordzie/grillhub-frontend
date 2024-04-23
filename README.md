@@ -1,4 +1,4 @@
-<h1 align="center">GrillHub</h1>
+<h1 align="center">GrillHub: A Sizzling Social Network</h1>
 <h4 align="center">⌛...in process...</h3>
 <h3 align="center">The world's first social network for grillmasters and BBQ enthusiasts.</h3>
 
@@ -10,30 +10,39 @@
   <br>
   <br>
 
-[»»» BACKEND CODE «««](https://github.com/dzordzie/grillhub-backend)
+[»»» FRONTEND CODE «««](https://github.com/dzordzie/grillhub-frontend)
 
 </div>
 
 ## :star2: About the Project
 
 <p align="center">
-  Inspired by <a href="https://www.reddit.com">reddit.com</a>, this project is a forum/social network, focused on sharing BBQ and grilling recipes, techniques and tips.<br>
-  The backend is built in Java and Spring, using security, JWT tokens, authentication, and authorization.<br>
-  The frontend is built in HTML, CSS, JavaScript and React.js
+  GrillHub is my personal project – a social network designed to fire up my passion for grilling and barbecue! It's a place to learn from fellow grill masters, experiment with recipes, and showcase my skills (potential employers, take note!).
   
+  <br>
+
+  <h3>Become a Grill Guru:</h3>
+  
+  - Sign up with a secure password.
+  - Dive into a world of recipes – create detailed posts featuring your grilling masterpieces.
+  - Craft mouthwatering rubs with customizable spice options.
+
+  <h3>The Grill Master Community Awaits:</h3>
+  
+  - Browse a library of recipes and rubs from fellow grilling enthusiasts.
+  - Edit and delete your own creations as you perfect your craft.
+  - Rate and dish out kudos on other users' culinary triumphs.
+
+  <h3>Tech Stack to Keep Things Smokin':</h3>
+
+  - Backend: Java, Spring Framework, Gradle, JPA Hibernate, MySQL Database, JWT Token, Role based authorization and authentication (keeping all the recipes safe!)
+  - Frontend: JavaScript, HTML, CSS, React (for a hot user experience)
+
   <br>
   <br>
   
   <img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/alpha-styling.jpg" link alt="layout" width=900 height=auto />
 </p>
-
-## :dart: Features
-
-- registration of a new user
-- user login based on roles
-- creating, editing and deleting users posts
-- the post contains the type of meat, used spices, internal and external temperature, weight, picture, procedure and description
-- posts (meals) are displayed on the main page and the user can sort them from newest or oldest
 
 ## :compass: Roadmap
 
@@ -48,6 +57,11 @@
 - [x] -   frontend <br>
 
 ✅ Display of All Posts on the Main Page:
+
+- [x] - backend
+- [x] - frontend <br>
+
+✅ Display of specific Post/Meal:
 
 - [x] - backend
 - [x] - frontend <br>
