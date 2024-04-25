@@ -1,31 +1,108 @@
-/* TEMPORARY STYLING */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 17rem;
+  width: 100%;
+  margin: 5rem auto;
+  background-color: var(--semilight);
+  padding: 2rem 1rem;
+  outline: 0.175rem dashed var(--dark);
+  outline-offset: -0.625rem;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
-.login-container {
+.form-container h2 {
+  align-self: center;
+  padding: 0 0.5rem;
+  border-bottom: 0.25rem double var(--dark);
+}
+
+.user-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.user-form div {
+  height: 2.5rem;
+  margin: 0.375rem auto;
+}
+
+.user-form div:nth-child(2) {
+  margin-top: 1rem;
 }
 
 .input-box {
-  margin-bottom: 10px;
+  border: none;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.input-box,
+.input-box:-webkit-autofill,
+textarea,
+textarea:-webkit-autofill {
+  -webkit-background-clip: text;
+  -webkit-box-shadow: 0 0 0 1000px var(--semilight) inset !important;
+  color: var(--grey);
+  background-color: var(--semilight);
+  outline: 0.125rem dashed var(--light);
+  outline-offset: -0.375rem;
+  font-family: 'Lusitana', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.input-box:focus,
+.input-box:hover,
+.input-box:-webkit-autofill:hover,
+.input-box:-webkit-autofill:focus,
+.input-box:-webkit-autofill:active,
+textarea:focus,
+textarea:hover,
+textarea:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--light) inset !important;
+  outline: 0.125rem dashed var(--grey);
+  outline-offset: -0.375rem;
 }
 
 .label {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  display: none;
 }
 
 .showpswd {
   margin-left: 5px;
+  display: none;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  height: 3.5rem;
+  width: 100%;
+  background-color: var(--light);
+  outline: 0.125rem dashed var(--semilight);
+  outline-offset: -0.375rem;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  color: var(--dark);
+  background-color: var(--light);
+  outline: 0.125rem dashed var(--grey);
+  outline-offset: -0.375rem;
+  cursor: pointer;
 }
 
 .sign-up-link {
-  margin-top: 10px;
+  margin-top: 1.5rem;
+  font-size: 0.8125rem;
 }

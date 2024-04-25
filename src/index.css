@@ -35,6 +35,7 @@ li {
 button {
   border: none;
   background: none;
+  font-family: 'Young Serif', serif;
 }
 
 .grid-container {

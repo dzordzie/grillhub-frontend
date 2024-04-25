@@ -1,5 +1,6 @@
+import './LogInForm.css'
 import './SignUpForm.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
 import userService from '../services/UserService'
 
@@ -69,15 +70,12 @@ function SignUpForm() {
   }
 
   return (
-    <div className='sign-up-form'>
-      <div>
-        <h1>Join us!</h1>
-      </div>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        <label className='label' htmlFor='username'>
-          Username
+    <div className='form-container'>
+      <form ref={formRef} onSubmit={handleSubmit} className='user-form'>
+        <h2>Join the GrillHub</h2>
+        <div>
           <input
-            className='input'
+            className='input-box'
             id='username'
             type='text'
             name='username'
@@ -89,11 +87,10 @@ function SignUpForm() {
           <span className='validation-message'>
             Username must be 3 - 16 characters long
           </span>
-        </label>
-        <label className='label' htmlFor='email'>
-          Email
+        </div>
+        <div>
           <input
-            className='input'
+            className='input-box'
             id='email'
             type='email'
             name='email'
@@ -105,11 +102,10 @@ function SignUpForm() {
           <span className='validation-message'>
             Please enter a valid email address.
           </span>
-        </label>
-        <label className='label' htmlFor='password'>
-          Password
+        </div>
+        <div>
           <input
-            className='input'
+            className='input-box'
             id='password'
             type={showPassword ? 'text' : 'password'}
             name='password'
@@ -129,7 +125,7 @@ function SignUpForm() {
             <br />
             and must be 8 -16 characters long
           </span>
-        </label>
+        </div>
         <label className='label' htmlFor='showpswd'>
           Show Password
           <input
@@ -153,13 +149,9 @@ function SignUpForm() {
           />
         </label>
         <span className='submit-message'>{messageForUser}</span>
-        <button className='submit-button' type='submit'>
-          Fire it up
+        <button className='submit-btn' type='submit'>
+          Fire It Up!
         </button>
-
-        <Link to='/login' className='link'>
-          Already have an account? Click here.
-        </Link>
       </form>
     </div>
   )

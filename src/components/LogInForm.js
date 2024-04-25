@@ -47,11 +47,12 @@ function LogInForm() {
   }
 
   return (
-    <div className='login-container'>
-      <h1>Login</h1>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        <div className='input-box'>
+    <div className='form-container'>
+      <form ref={formRef} onSubmit={handleSubmit} className='user-form'>
+        <h2>It's Grill Time</h2>
+        <div>
           <input
+            className='input-box'
             id='username'
             type='username'
             required
@@ -61,8 +62,9 @@ function LogInForm() {
             placeholder='Username'
           />
         </div>
-        <div className='input-box'>
+        <div>
           <input
+            className='input-box'
             type={showPassword ? 'text' : 'password'}
             placeholder='Password'
             id='password'
@@ -84,11 +86,12 @@ function LogInForm() {
           />
         </label>
         <span className='submit-message'>{messageForUser}</span>
-        <button type='submit'>Login</button>
+        <button className='submit-btn' type='submit'>
+          Let's Go!'
+        </button>
 
         <Link to='/registration' className='sign-up-link'>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          Don't have an account? Click here to register.
+          Do you want to grill with us?
         </Link>
       </form>
     </div>
