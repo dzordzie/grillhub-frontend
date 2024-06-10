@@ -1,6 +1,5 @@
 .post-wrapper {
-  padding: 0 5rem;
-  padding-bottom: 4.2rem;
+  padding: 0 5rem 4.2rem clamp(2rem, 5vw, 5rem);
   border-bottom: 0.15rem dashed var(--semilight);
 }
 
@@ -35,7 +34,7 @@
   column-gap: 2rem;
 }
 
-.meal-picture {
+.post-picture {
   grid-area: meal-picture;
   max-height: 17rem;
   max-width: 17rem;
@@ -61,6 +60,7 @@
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   top: -1.6rem;
   left: 1.5rem;
+  margin-right: 1.5rem;
   outline: 0.2rem dashed var(--grey);
   outline-offset: -0.2rem;
 }
@@ -109,4 +109,49 @@
 .created-at,
 .created-by {
   text-align: right;
+}
+
+/* =================== RESPONSIVE ======================= */
+
+@media screen and (max-width: 1279px) {
+  .post-wrapper {
+    padding-left: clamp(2rem, 3vw, 5rem);
+    padding-right: clamp(2rem, 3vw, 5rem);
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .post-wrapper {
+    padding-left: clamp(5rem, 3vw, 6rem);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .meal-summary {
+    display: grid;
+    grid-template-areas:
+      'meal-picture meal-description'
+      'post-footer post-footer';
+    grid-template-rows: 17rem auto;
+    grid-template-columns: 17rem auto;
+    column-gap: 2rem;
+  }
+
+  .post-footer {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .meal-summary {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-picture {
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    outline: 0.4rem double var(--semilight);
+  }
 }

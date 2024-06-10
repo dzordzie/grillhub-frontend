@@ -1,10 +1,8 @@
 .best-bar {
   position: absolute;
   top: 9rem;
-  right: 5rem;
-  max-width: 17rem;
-  width: 100%;
-  margin-left: 2rem;
+  right: clamp(2rem, 5rem, 4vw);
+  max-width: clamp(14rem, 15vw, 18rem);
 }
 
 .best-bar-wrapper {
@@ -20,8 +18,9 @@
 }
 
 .best-heading {
+  text-align: center;
   align-self: center;
-  font-size: 1.125rem;
+  font-size: 1rem;
   padding: 0 0.5rem;
   border-bottom: 0.25rem double var(--dark);
 }

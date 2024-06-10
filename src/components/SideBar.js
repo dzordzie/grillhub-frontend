@@ -12,7 +12,7 @@ import rub from '../assets/rub-dark.svg'
 function SideBar() {
   return (
     <aside className='sidebar'>
-      <h2 className='side-heading'>MAIN CATEGORIES</h2>
+      <h2 className='side-heading'>CATEGORIES</h2>
       <nav className='side-navigation'>
         <ul className='filter-items'>
           <li>

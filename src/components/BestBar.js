@@ -7,7 +7,7 @@ function BestBar() {
   return (
     <aside className='best-bar'>
       <div className='best-bar-wrapper'>
-        <h2 className='best-heading'>BEST PITMASTERS</h2>
+        <h2 className='best-heading'>THE MOST POPULAR</h2>
         <ul className='best-members'>
           <li>
             <Link to='/login' className='best-member'>

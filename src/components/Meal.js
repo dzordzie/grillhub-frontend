@@ -38,13 +38,13 @@ function Meal({ meal }) {
   const backgroundImage = meatTypeToImage[meatType] || beefImg
 
   const pageStyles = {
-    background: `url(${backgroundImage}) right 7vw bottom no-repeat fixed`,
-    backgroundSize: 'auto 10vw',
+    background: `url(${backgroundImage}) right 6rem bottom 5.3rem no-repeat`,
+    backgroundSize: 'auto 10rem',
   }
 
   return (
-    <div className='content' style={pageStyles}>
-      <div className='meal-wrapper'>
+    <div className='content'>
+      <div className='meal-wrapper' style={pageStyles}>
         <article className='meal'>
           <h1 className='meal-name'>{name}</h1>
           <section className='meal-info'>

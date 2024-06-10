@@ -106,3 +106,17 @@ textarea:active {
   margin-top: 1.5rem;
   font-size: 0.8125rem;
 }
+
+/* =================== RESPONSIVE ======================= */
+
+@media screen and (max-width: 1279px) {
+  .form-container {
+    margin-right: calc(10vw + 0.5rem);
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  .form-container {
+    margin-right: auto;
+  }
+}

@@ -69,16 +69,15 @@ button {
 
 .sub-grid-container {
   grid-area: main;
+  display: flex;
+  justify-content: center;
   overflow-y: scroll;
   margin-left: 1rem;
   scrollbar-gutter: stable;
 }
 
 .content {
-  max-width: 60rem;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 22rem;
+  max-width: clamp(52rem, 55vw, 60rem);
   transform-origin: 50vw 50vh;
   animation: zoomIn 0.2s linear;
 }
@@ -92,4 +91,31 @@ button {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* =================== RESPONSIVE ======================= */
+
+@media screen and (max-width: 1279px) {
+  .sub-grid-container {
+    display: block;
+  }
+
+  .content {
+    margin: 0 auto 0 10vw;
+    max-width: clamp(46rem, 65vw, 52rem);
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  .best-bar {
+    display: none;
+  }
+
+  .content {
+    margin: 0 auto;
+    max-width: clamp(52rem, 80vw, 60rem);
+  }
+}
+
+@media screen and (max-width: 980px) {
 }

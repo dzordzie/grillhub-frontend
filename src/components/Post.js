@@ -33,7 +33,7 @@ function Post({ post }) {
 
   const postStyles = {
     background: `url(${backgroundImage}) right 1rem bottom 0.2rem no-repeat`,
-    backgroundSize: 'auto 45%',
+    backgroundSize: 'auto clamp(20%, 30vw, 45%)',
   }
 
   return (
@@ -43,7 +43,7 @@ function Post({ post }) {
           <h1 className='meal-name'>{name}</h1>
         </Link>
         <div className='meal-summary'>
-          <img src={picture} alt='beef' className='meal-picture' />
+          <img src={picture} alt='beef' className='post-picture' />
           <p className='post-description'>{description.slice(0, 350)}...</p>
           <footer className='post-footer'>
             <p>
