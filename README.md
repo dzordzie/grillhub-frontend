@@ -42,6 +42,8 @@
   <br>
   
   <img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/alpha-styling.jpg" link alt="layout" width=900 height=auto />
+
+  <img align="center" src="https://github.com/dzordzie/grillhub-frontend/blob/master/src/assets/alpha-styling-1.jpg" link alt="layout" width=900 height=auto />
 </p>
 
 ## :compass: Roadmap
