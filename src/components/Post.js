@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import './Post.css'
 import picture from '../assets/beef.jpeg'
 import flameColor from '../assets/flame-color.svg'
@@ -15,8 +16,9 @@ function Post({ post }) {
     id,
     name,
     description,
+    imageBase64,
     meatType,
-    createdByUser: { username },
+    createdByUser: { id: userId, username },
     createdAt,
   } = post
 
@@ -36,21 +38,25 @@ function Post({ post }) {
     backgroundSize: 'auto clamp(20%, 30vw, 45%)',
   }
 
+  const imageSrc = imageBase64 || picture
+
   return (
-    <div className='post-wrapper'>
+    <motion.div className='post-wrapper'>
       <article className='post' style={postStyles}>
         <Link to={`/meal/${id}`}>
           <h1 className='meal-name'>{name}</h1>
         </Link>
         <div className='meal-summary'>
-          <img src={picture} alt='beef' className='post-picture' />
+          <div className='post-picture-container'>
+            <img src={imageSrc} alt='YUM' className='post-picture' />
+          </div>
           <p className='post-description'>{description.slice(0, 350)}...</p>
           <footer className='post-footer'>
             <p>
               category: <Link>{meatType}</Link>
             </p>
             <p className='created-by'>
-              by <Link>{username}</Link>
+              by <Link to={`/user/${userId}`}>{username}</Link>
             </p>
             <div className='meal-ratings'>
               <img src={flameColor} alt='' />
@@ -63,7 +69,7 @@ function Post({ post }) {
           </footer>
         </div>
       </article>
-    </div>
+    </motion.div>
   )
 }
 export default Post

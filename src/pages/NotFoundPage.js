@@ -1,7 +1,7 @@
 function NotFoundPage() {
   return (
     <div className='content'>
-      <h1>404 Not Found</h1>
+      <h2 className='message'>404 Not Found</h2>
     </div>
   )
 }

@@ -1,20 +1,36 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import './MainNavigation.css'
+import React, { useState } from 'react'
+import ApiService from '../service/ApiService'
+import grillOpened from '../assets/grill-opened.svg'
+import grillClosed from '../assets/grill-closed.svg'
+
+const apiService = new ApiService('/auth')
 
 function MainNavigation() {
+  const [isHovered, setIsHovered] = useState(false)
   const navigate = useNavigate()
-  const token = localStorage.getItem('token')
+  const accessToken = apiService.getAccessToken()
+
   const role = localStorage.getItem('role')
 
-  function logOut() {
-    localStorage.clear()
-    navigate('/', { replace: true })
+  async function logOut() {
+    const refreshToken = apiService.getRefreshToken()
+    try {
+      await apiService.post('/logout', { refreshToken })
+      apiService.removeTokens()
+      localStorage.removeItem('role')
+      navigate('/', { replace: true })
+    } catch (error) {
+      console.error('Error during logout:', error)
+    }
   }
 
-  if (!token || token === null || token === 'null') {
+  if (!accessToken || accessToken === null || accessToken === 'null') {
     return (
       <nav className='main-nav'>
-        <NavLink to='/login'>LogIn</NavLink>
+        <NavLink to='/login' className='login-button'>
+          LogIn
+        </NavLink>
       </nav>
     )
   }
@@ -22,7 +38,20 @@ function MainNavigation() {
   if (role === 'USER') {
     return (
       <nav className='main-nav'>
-        <NavLink to='/profile'>Profile</NavLink>
+        <Link
+          to='/add-new'
+          className='add-button'
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          +
+          <img
+            src={isHovered ? grillOpened : grillClosed}
+            alt='add-new'
+            className='add-new'
+          />
+        </Link>
+        <Link to='/profile'>Profile</Link>
         <Link to='/' onClick={logOut}>
           ✕
         </Link>

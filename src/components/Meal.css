@@ -17,13 +17,56 @@
   border-bottom: 0.15rem dashed var(--semilight);
 }
 
-.meal-picture {
+.meal-picture-container {
   grid-area: meal-picture;
-  max-height: 17rem;
-  max-width: 17rem;
-  outline: 0.4rem double var(--semilight);
+  height: 17rem;
+  width: 17rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   margin: 0 2rem 1.5rem 0;
   float: left;
+  outline: 0.4rem double var(--semilight);
+}
+
+.meal-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.meal-picture-container:hover {
+  transform: scale(1.02);
+  transition: transform 0.05s;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(89, 89, 89, 0.8);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+}
+
+.modal-content {
+  outline: 0.1875rem dashed var(--semilight);
+  outline-offset: 0.3rem;
+  transform-origin: 50% 50%;
+  animation: zoomIn 0.125s linear;
+}
+
+.modal-image {
+  max-width: 1000px;
+  max-height: 90vh;
+  display: block;
 }
 
 .meal-description {
@@ -50,6 +93,23 @@
   outline-offset: -0.2rem;
 }
 
+.meal-name-list {
+  color: var(--dark);
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  outline: 0.1rem dashed var(--grey);
+  outline-offset: -0.2rem;
+  margin-top: 1rem;
+}
+
+.meal-name-list:hover,
+.meal-name-list:active {
+  background-color: var(--light);
+  outline: 0.125rem dashed var(--grey);
+  outline-offset: -0.3rem;
+  cursor: pointer;
+}
+
 .meal-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -59,7 +119,8 @@
   border-bottom: 0.15rem dashed var(--semilight);
 }
 
-.meal-details > div {
+.meat,
+.rub {
   display: flex;
   flex-direction: column;
   background-color: var(--semilight);
@@ -80,8 +141,7 @@
   border-bottom: 0.25rem double var(--dark);
 }
 
-.meat-info,
-.rub-info {
+.ingredients {
   margin: 1.5rem 1rem;
 }
 
@@ -93,7 +153,7 @@
   font-size: 1.125rem;
 }
 
-.rub-name {
+.rub-owner {
   margin-top: 1.5rem;
 }
 
@@ -107,14 +167,14 @@
   align-items: end;
 }
 
-.rub-name a,
+.rub-owner a,
 .meal-footer a {
   font-weight: 700;
   text-decoration: none;
 }
 
-.rub-name a:hover,
-.rub-name a:active,
+.rub-owner a:hover,
+.rub-owner a:active,
 .meal-footer a:hover,
 .meal-footer a:active {
   text-decoration: underline dashed var(--grey);
@@ -139,3 +199,9 @@
 }
 
 /* =================== RESPONSIVE ======================= */
+@media (orientation: portrait) {
+  .modal-image {
+    max-width: 90vw;
+    max-height: auto;
+  }
+}

@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Meal from '../components/Meal'
+import User from '../components/User'
 import BestBar from '../components/BestBar'
 import ApiService from '../service/ApiService'
 
-function MealPage() {
+function UserPage() {
   const { id } = useParams()
-  const [meal, setMeal] = useState(null)
+  const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
   useEffect(() => {
     setLoading(true)
-    const apiService = new ApiService('/meal')
+    const apiService = new ApiService('/user')
 
-    const fetchMealData = async () => {
+    const fetchUserData = async () => {
       try {
-        const mealData = await apiService.get(`/${id}`)
-        setMeal(mealData)
+        const userData = await apiService.get(`/${id}`)
+        setUser(userData)
       } catch (error) {
         setError(error)
         console.error('Loading meal error:', error)
@@ -25,17 +25,17 @@ function MealPage() {
         setLoading(false)
       }
     }
-    fetchMealData()
+    fetchUserData()
   }, [id, error])
 
   return (
     <>
       {loading ? (
-        <h2 className='message'>Loading meal...</h2>
+        <h2 className='message'>Loading user...</h2>
       ) : error ? (
         <h2 className='message'>{error}</h2>
-      ) : meal ? (
-        <Meal meal={meal} />
+      ) : user ? (
+        <User user={user} />
       ) : (
         <h2 className='message'>Nothing is here :(</h2>
       )}
@@ -43,4 +43,4 @@ function MealPage() {
     </>
   )
 }
-export default MealPage
+export default UserPage

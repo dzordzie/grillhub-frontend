@@ -98,6 +98,19 @@
   transition: transform 0.1s;
 }
 
+.active {
+  background-color: var(--semilight);
+}
+
+.active p {
+  background-color: var(--semilight);
+}
+
+.active img {
+  transform: scale(1.2);
+  transition: transform 0.1s;
+}
+
 /* =================== RESPONSIVE ======================= */
 
 @media screen and (max-width: 1279px) {
@@ -141,18 +154,5 @@
   .category img {
     max-height: 1.5rem;
     padding: 0;
-  }
-
-  .category:hover {
-    background-color: var(--semilight);
-  }
-
-  .category:hover p {
-    background-color: var(--semilight);
-  }
-
-  .category:hover img {
-    transform: scale(1.2);
-    transition: transform 0.1s;
   }
 }

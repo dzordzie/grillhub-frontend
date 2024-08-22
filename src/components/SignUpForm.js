@@ -2,7 +2,7 @@ import './LogInForm.css'
 import './SignUpForm.css'
 import { useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
-import userService from '../services/UserService'
+import ApiService from '../service/ApiService'
 
 function SignUpForm() {
   const [user, setUser] = useState({
@@ -43,13 +43,14 @@ function SignUpForm() {
     return user.username === '' || user.email === '' || user.password === ''
   }
 
-  /* ⇩⇩⇩⇩⇩ THIS WILL BE CONVERTED TO SERVICE ⇩⇩⇩⇩⇩ */
+  const apiService = new ApiService('/auth')
+
   async function handleSubmit(event) {
     event.preventDefault()
     const isFormValid = formRef.current.checkValidity()
     if (isFormValid && !isFormEmpty() && terms) {
       try {
-        const response = await userService.registration(user)
+        const response = await apiService.post('/registration', user)
         if (response.error) {
           setMessageForUser(response.error)
         } else {

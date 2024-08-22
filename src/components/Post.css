@@ -34,11 +34,21 @@
   column-gap: 2rem;
 }
 
-.post-picture {
+.post-picture-container {
   grid-area: meal-picture;
-  max-height: 17rem;
-  max-width: 17rem;
+  width: 17rem;
+  height: 17rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   outline: 0.4rem double var(--semilight);
+}
+
+.post-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .post-description {
@@ -149,8 +159,8 @@
   }
 
   .post-picture {
-    max-height: 100%;
-    max-width: 100%;
+    height: 100%;
+    width: 100%;
     margin-bottom: 1.5rem;
     outline: 0.4rem double var(--semilight);
   }

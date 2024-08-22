@@ -9,18 +9,22 @@ import porkImg from '../assets/pork-semilight.svg'
 import chickenImg from '../assets/chicken-semilight.svg'
 import lambImg from '../assets/lamb-semilight.svg'
 import shrimpImg from '../assets/seafood-semilight.svg'
+import { useState } from 'react'
 
 function Meal({ meal }) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const {
     name,
     description,
+    imageBase64,
     meat: { typeOfCut, weightInGrams, internalTemp, ambientTemp, meatType },
-    rub,
+    rub: { ...rubData },
     createdByUser,
     createdAt,
   } = meal
 
-  const rubSpices = rub.spices?.map((spice) => (
+  const rubSpices = rubData.spices.map((spice) => (
     <li key={spice.name}>
       {spice.weightInGrams}g {spice.name}
     </li>
@@ -42,19 +46,31 @@ function Meal({ meal }) {
     backgroundSize: 'auto 10rem',
   }
 
+  const imageSrc = imageBase64 || picture
+
+  const openModal = () => setIsModalOpen(true)
+  const closeModal = () => setIsModalOpen(false)
+
   return (
     <div className='content'>
       <div className='meal-wrapper' style={pageStyles}>
         <article className='meal'>
           <h1 className='meal-name'>{name}</h1>
           <section className='meal-info'>
-            <img src={picture} alt='beef' className='meal-picture' />
+            <div className='meal-picture-container'>
+              <img
+                src={imageSrc}
+                alt='YUM'
+                className='meal-picture'
+                onClick={openModal}
+              />
+            </div>
             <p className='meal-description'>{description}</p>
           </section>
           <section className='meal-details'>
             <div className='meat'>
               <h2>Meat</h2>
-              <ul className='meat-info'>
+              <ul className='ingredients'>
                 <li>
                   {weightInGrams}g of {typeOfCut}
                 </li>
@@ -64,11 +80,14 @@ function Meal({ meal }) {
             </div>
             <div className='rub'>
               <h2>Rub</h2>
-              <ul className='rub-info'>
+              <ul className='ingredients'>
                 {rubSpices}
-                <p className='rub-name'>
-                  This is <Link>{rub.name}</Link> by{' '}
-                  <Link>{rub.createdByUser.username}</Link>
+                <p className='rub-owner'>
+                  This is <Link to={`/rub/${rubData.id}`}>{rubData.name}</Link>{' '}
+                  by{' '}
+                  <Link to={`/user/${rubData.createdByUser.id}`}>
+                    {rubData.createdByUser.username}
+                  </Link>
                 </p>
               </ul>
             </div>
@@ -78,7 +97,10 @@ function Meal({ meal }) {
               category: <Link>{meatType}</Link>
             </p>
             <p className='created-by'>
-              by <Link>{createdByUser.username}</Link>
+              by{' '}
+              <Link to={`/user/${createdByUser.id}`}>
+                {createdByUser.username}
+              </Link>
             </p>
             <div className='meal-ratings'>
               <img src={flameColor} alt='' />
@@ -91,6 +113,14 @@ function Meal({ meal }) {
           </footer>
         </article>
       </div>
+
+      {isModalOpen && (
+        <div className='modal' onClick={closeModal}>
+          <div className='modal-content'>
+            <img src={imageSrc} alt='Maximum YUM' className='modal-image' />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 .header {
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--light);
   border-bottom: 0.25rem double var(--semilight);
 }
@@ -18,7 +18,9 @@
 }
 
 .home-link:hover,
-.home-link:active {
+.home-link:active,
+.main-nav a:not(.add-button):hover,
+.main-nav a:not(.add-button):active {
   text-decoration: underline dashed var(--grey);
   text-underline-offset: 0.5rem;
   text-decoration-thickness: 0.15rem;
@@ -27,17 +29,34 @@
 .main-nav {
   margin-right: clamp(2rem, 5rem, 4vw);
   text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .main-nav a:nth-child(2) {
   margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.add-button {
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.add-new {
+  height: 2.5rem;
+  width: auto;
+  margin-left: 0.25rem;
 }
 
 .search-form {
-  max-width: clamp(5rem, 40vw, 50rem);
+  max-width: 50rem;
   width: 100%;
   height: 2.5rem;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .search-input {
@@ -45,7 +64,7 @@
   border-radius: 2rem;
   background: none;
   padding: 0 3rem;
-  width: calc(100% - 6rem);
+  width: 60%;
   height: 100%;
   background: url(../assets/magnify.svg) 1rem no-repeat;
   background-size: 1.75rem;

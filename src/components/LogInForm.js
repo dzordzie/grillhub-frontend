@@ -1,7 +1,7 @@
 import './LogInForm.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
-import userService from '../services/UserService'
+import ApiService from '../service/ApiService'
 
 function LogInForm() {
   const [user, setUser] = useState({
@@ -28,17 +28,24 @@ function LogInForm() {
       password: '',
     })
   }
-  /* ⇩⇩⇩⇩⇩ THIS WILL BE CONVERTED TO SERVICE ⇩⇩⇩⇩⇩ */
+
+  const apiService = new ApiService('/auth')
+
   async function handleSubmit(event) {
     event.preventDefault()
     try {
-      const response = await userService.login(user)
-      const token = response.token
-      const role = JSON.parse(atob(token.split('.')[1])).role
+      const response = await apiService.post('/login', user)
+
+      const { accessToken, refreshToken } = response
+
+      apiService.setAccessToken(accessToken)
+      apiService.setRefreshToken(refreshToken)
+
+      const role = JSON.parse(atob(accessToken.split('.')[1])).role
+      localStorage.setItem('role', role)
+
       formRef.current.reset()
       resetStates()
-      localStorage.setItem('token', token)
-      localStorage.setItem('role', role)
       navigate('/')
     } catch (error) {
       console.error('Error during login:', error)

@@ -26,6 +26,7 @@ a {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 li {
@@ -78,8 +79,15 @@ button {
 
 .content {
   max-width: clamp(52rem, 55vw, 60rem);
-  transform-origin: 50vw 50vh;
+  transform-origin: 50% 50%;
   animation: zoomIn 0.2s linear;
+}
+
+.message {
+  margin-top: 25vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes zoomIn {
