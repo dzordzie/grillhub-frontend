@@ -31,6 +31,7 @@
   border: none;
   height: 100%;
   padding: 0 1rem;
+  width: 100%;
 }
 
 .input-box,
@@ -82,7 +83,8 @@ textarea:active {
   display: flex;
   align-items: center;
   height: 2.5rem;
-  margin: 0.5rem auto;
+  margin-top: 0.5rem;
+  width: 100%;
 }
 
 .input-div:first-of-type {
