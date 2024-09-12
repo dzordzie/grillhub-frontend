@@ -43,7 +43,7 @@ function Meal({ meal }) {
 
   const pageStyles = {
     background: `url(${backgroundImage}) right 1rem bottom 0.2rem no-repeat`,
-    backgroundSize: 'auto clamp(8%, 18vh, 15%)',
+    backgroundSize: 'auto clamp(8%, 18vw, 18%)',
   }
 
   const imageSrc = imageBase64 || picture
