@@ -42,8 +42,8 @@ function Meal({ meal }) {
   const backgroundImage = meatTypeToImage[meatType] || beefImg
 
   const pageStyles = {
-    background: `url(${backgroundImage}) right 1rem bottom 0.35rem no-repeat`,
-    backgroundSize: '30vh auto',
+    background: `url(${backgroundImage}) right 1rem bottom 0.2rem no-repeat`,
+    backgroundSize: 'auto clamp(8%, 18vh, 15%)',
   }
 
   const imageSrc = imageBase64 || picture
