@@ -20,7 +20,8 @@ body {
 
 h1,
 h2,
-a {
+a,
+legend {
   font-family: 'Young Serif', serif;
 }
 
@@ -46,27 +47,12 @@ button {
   grid-template-areas:
     'header'
     'main';
-  grid-template-rows: 4rem auto;
+  grid-template-rows: 3rem auto;
 }
 
 .header {
   grid-area: header;
 }
-
-/* .sidebar {
-  grid-area: sidebar;
-  height: 100%;
-} */
-
-/* .sub-grid-container {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  grid-template-areas: 'posts bestbar';
-  grid-template-columns: auto 24rem;
-  grid-area: main;
-  overflow: auto;
-} */
 
 .sub-grid-container {
   grid-area: main;
@@ -125,5 +111,19 @@ button {
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 730px) {
+  .content {
+    max-width: 37.5rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .sub-grid-container {
+    margin-left: 0;
+  }
+
+  .content {
+    width: 85%;
+  }
 }

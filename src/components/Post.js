@@ -35,7 +35,7 @@ function Post({ post }) {
 
   const postStyles = {
     background: `url(${backgroundImage}) right 1rem bottom 0.2rem no-repeat`,
-    backgroundSize: 'auto clamp(20%, 30vw, 45%)',
+    backgroundSize: 'auto clamp(18%, 22vw, 45%)',
   }
 
   const imageSrc = imageBase64 || picture
@@ -43,8 +43,8 @@ function Post({ post }) {
   return (
     <motion.div className='post-wrapper'>
       <article className='post' style={postStyles}>
-        <Link to={`/meal/${id}`}>
-          <h1 className='meal-name'>{name}</h1>
+        <Link to={`/meal/${id}`} className='meal-link'>
+          <h1 className='meal-name post-name'>{name}</h1>
         </Link>
         <div className='meal-summary'>
           <div className='post-picture-container'>

@@ -1,8 +1,11 @@
 import './LogInForm.css'
-import './SignUpForm.css'
 import { useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
 import ApiService from '../service/ApiService'
+import eyeShow from '../assets/eye-show.svg'
+import eyeHide from '../assets/eye-hide.svg'
+import userIcon from '../assets/user.svg'
+import emailIcon from '../assets/email.svg'
 
 function SignUpForm() {
   const [user, setUser] = useState({
@@ -61,12 +64,12 @@ function SignUpForm() {
         }
       } catch (error) {
         console.error('Error during registration:', error)
-        setMessageForUser('Sorry something went wrong. Please try again later.')
+        setMessageForUser('Error during registration')
       }
     } else if (isFormEmpty()) {
       setMessageForUser('Please fill the form!')
     } else if (!terms) {
-      setMessageForUser('Please agree to Terms and Conditions!')
+      setMessageForUser('Please agree to terms of use')
     }
   }
 
@@ -74,7 +77,7 @@ function SignUpForm() {
     <div className='form-container'>
       <form ref={formRef} onSubmit={handleSubmit} className='user-form'>
         <h2>Join the GrillHub</h2>
-        <div>
+        <div className='input-div'>
           <input
             className='input-box'
             id='username'
@@ -85,11 +88,12 @@ function SignUpForm() {
             value={user.username}
             placeholder='Username'
           />
+          <img src={userIcon} alt='username' className='input-image' />
           <span className='validation-message'>
             Username must be 3 - 16 characters long
           </span>
         </div>
-        <div>
+        <div className='input-div'>
           <input
             className='input-box'
             id='email'
@@ -100,11 +104,12 @@ function SignUpForm() {
             value={user.email}
             placeholder='e-mail'
           />
+          <img src={emailIcon} alt='email' className='input-image' />
           <span className='validation-message'>
             Please enter a valid email address.
           </span>
         </div>
-        <div>
+        <div className='input-div'>
           <input
             className='input-box'
             id='password'
@@ -115,30 +120,21 @@ function SignUpForm() {
             value={user.password}
             placeholder='Password'
           />
+          <img
+            src={showPassword ? eyeHide : eyeShow}
+            alt='show'
+            className='input-image password'
+            onClick={() => setShowPassword((show) => !show)}
+          />
           <span className='validation-message'>
-            Password must contain at least:
+            Password must contain 2x number
             <br />
-            - two numbers
-            <br />
-            - two uppercase letters
-            <br />
-            - two special characters
+            2x uppercase letter, 2x special character
             <br />
             and must be 8 -16 characters long
           </span>
         </div>
-        <label className='label' htmlFor='showpswd'>
-          Show Password
-          <input
-            className='showpswd'
-            id='showpswd'
-            type='checkbox'
-            name='showpswd'
-            onChange={() => setShowPassword((show) => !show)}
-            value={showPassword}
-          />
-        </label>
-        <label className='label' htmlFor='terms'>
+        <label className='terms' htmlFor='terms'>
           Please accept the terms of use.*
           <input
             className='checkbox'
@@ -149,7 +145,7 @@ function SignUpForm() {
             value={terms}
           />
         </label>
-        <span className='submit-message'>{messageForUser}</span>
+        <span className='submit-message signup'>{messageForUser}</span>
         <button className='submit-btn' type='submit'>
           Fire It Up!
         </button>

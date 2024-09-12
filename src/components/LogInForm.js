@@ -2,6 +2,9 @@ import './LogInForm.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useRef } from 'react'
 import ApiService from '../service/ApiService'
+import eyeShow from '../assets/eye-show.svg'
+import eyeHide from '../assets/eye-hide.svg'
+import userIcon from '../assets/user.svg'
 
 function LogInForm() {
   const [user, setUser] = useState({
@@ -49,7 +52,7 @@ function LogInForm() {
       navigate('/')
     } catch (error) {
       console.error('Error during login:', error)
-      setMessageForUser('Sorry something went wrong. Please try again later.')
+      setMessageForUser('Username or password is incorrect!')
     }
   }
 
@@ -57,7 +60,7 @@ function LogInForm() {
     <div className='form-container'>
       <form ref={formRef} onSubmit={handleSubmit} className='user-form'>
         <h2>It's Grill Time</h2>
-        <div>
+        <div className='input-div'>
           <input
             className='input-box'
             id='username'
@@ -68,8 +71,9 @@ function LogInForm() {
             value={user.username}
             placeholder='Username'
           />
+          <img src={userIcon} alt='username' className='input-image' />
         </div>
-        <div>
+        <div className='input-div'>
           <input
             className='input-box'
             type={showPassword ? 'text' : 'password'}
@@ -80,21 +84,16 @@ function LogInForm() {
             onChange={handleUser}
             value={user.password}
           />
-        </div>
-        <label className='label' htmlFor='showpswd'>
-          Show Password
-          <input
-            className='showpswd'
-            id='showpswd'
-            type='checkbox'
-            name='showpswd'
-            onChange={() => setShowPassword((show) => !show)}
-            checked={showPassword}
+          <img
+            src={showPassword ? eyeHide : eyeShow}
+            alt='show'
+            className='input-image password'
+            onClick={() => setShowPassword((show) => !show)}
           />
-        </label>
-        <span className='submit-message'>{messageForUser}</span>
+        </div>
+        <span className='submit-message login'>{messageForUser}</span>
         <button className='submit-btn' type='submit'>
-          Let's Go!'
+          Let's Go!
         </button>
 
         <Link to='/registration' className='sign-up-link'>

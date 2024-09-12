@@ -2,11 +2,10 @@
 
 .sidebar {
   position: absolute;
-  top: 4rem;
   left: 0;
   max-width: clamp(12rem, 18vw, 20rem);
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 3rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,7 +114,8 @@
 
 @media screen and (max-width: 1279px) {
   .sidebar {
-    width: 5rem;
+    max-width: 4rem;
+    width: 15vh;
     background-image: none;
   }
 
@@ -124,7 +124,8 @@
   }
 
   .side-navigation {
-    width: 5rem;
+    width: 100%;
+    height: inherit;
   }
 
   .side-heading {
@@ -133,13 +134,20 @@
 
   .filter-items {
     margin-top: 0;
+    height: inherit;
+  }
+
+  .filter-items li {
+    height: 14.28%;
+    max-height: 4rem;
   }
 
   .category {
+    box-sizing: border-box;
     justify-content: center;
-    padding: 1rem;
+    padding: 0;
     position: relative;
-    height: 3rem;
+    height: 100%;
   }
 
   .category:before {
@@ -153,6 +161,39 @@
 
   .category img {
     max-height: 1.5rem;
+    width: auto;
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    max-width: 100vw;
+    width: 100%;
+    height: 3rem;
+    border-right: none;
+    border-top: 0.25rem double var(--semilight);
+    z-index: 1;
+    justify-content: space-between;
+  }
+
+  .side-navigation {
+    max-width: 100vw;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .filter-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .filter-items li {
+    height: 100%;
+    width: 100%;
   }
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Compressor from 'compressorjs'
 import ApiService from '../service/ApiService'
+import './NewMealPage.css'
 
 function NewMealPage() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ function NewMealPage() {
   const handleChange = (event) => {
     const { name, value, type, files, dataset } = event.target
     const parsedValue = type === 'number' ? Number(value) : value
+    const label = document.querySelector(`label[for='${event.target.id}']`)
 
     if (type === 'file') {
       const file = files[0]
@@ -34,6 +36,12 @@ function NewMealPage() {
           imageBase64: base64,
         }))
       })
+
+      if (file) {
+        label.innerHTML = `Image selected: <span class='file-selected'>${file.name}</span>`
+      } else {
+        label.innerHTML = 'Upload Image'
+      }
     } else if (dataset.section) {
       setFormData((prevState) => ({
         ...prevState,
@@ -129,144 +137,156 @@ function NewMealPage() {
 
   return (
     <div className='content'>
-      <div className='new-meal-form'>
-        <h1>Let's put something on the grill</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <h3>Upload Image:</h3>
-            <input type='file' name='image' onChange={handleChange} />
-          </label>
-          <label>
-            <h3>Name:</h3>
-            <input
-              type='text'
-              name='name'
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            <h3>Description:</h3>
-            <textarea
-              type='text'
-              name='description'
-              className='new-meal-description'
-              value={formData.description}
-              onChange={handleChange}
-            />
-          </label>
-          <fieldset className='meat-fields'>
-            <legend>
-              <h3>Meat</h3>
-            </legend>
-            <label>
-              <h4>Type of Cut:</h4>
+      <div className='new-meal-wrapper'>
+        <div className='new-meal'>
+          <h1 className='new-meal-heading'>Let's put something on the grill</h1>
+          <form className='new-meal-form' onSubmit={handleSubmit}>
+            <div className='new-meal-info'>
               <input
-                type='text'
-                name='typeOfCut'
-                data-section='meat'
-                value={formData.meat.typeOfCut}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <h4>Weight (grams):</h4>
-              <input
-                type='number'
-                name='weightInGrams'
-                data-section='meat'
-                value={formData.meat.weightInGrams}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <h4>Internal Temp. (°C):</h4>
-              <input
-                type='number'
-                name='internalTemp'
-                data-section='meat'
-                value={formData.meat.internalTemp}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <h4>Ambient Temp. (°C):</h4>
-              <input
-                type='number'
-                name='ambientTemp'
-                data-section='meat'
-                value={formData.meat.ambientTemp}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              <h4>Meat Type:</h4>
-              <select
-                name='meatType'
-                value={formData.meat.meatType}
-                onChange={handleChange}
-                data-section='meat'
-              >
-                <option value=''>Select Meat Type</option>
-                <option value='BEEF'>Beef</option>
-                <option value='PORK'>Pork</option>
-                <option value='CHICKEN'>Chicken</option>
-                <option value='LAMB'>Lamb</option>
-                <option value='FISH'>Fish</option>
-                <option value='SEAFOOD'>Seafood</option>
-              </select>
-            </label>
-          </fieldset>
-          <fieldset className='rub-fields'>
-            <legend>
-              <h3>Rub</h3>
-            </legend>
-            <label>
-              <h4>Name:</h4>
-              <input
+                className='input-box new-name'
                 type='text'
                 name='name'
-                data-section='rub'
-                value={formData.rub.name}
+                placeholder='Name'
+                value={formData.name}
                 onChange={handleChange}
               />
-            </label>
-            <fieldset className='spice-fields'>
-              <legend>
-                <h4>Spices</h4>
-              </legend>
-              {formData.rub.spices.map((spice, index) => (
-                <div key={index}>
-                  <label>
-                    <h4>Spice Name:</h4>
-                    <input
-                      type='text'
-                      name='name'
-                      value={spice.name}
-                      onChange={(e) => handleSpices(index, e)}
-                    />
-                  </label>
-                  <label>
-                    <h4>Weight (grams):</h4>
-                    <input
-                      type='number'
-                      name='weightInGrams'
-                      value={spice.weightInGrams}
-                      onChange={(e) => handleSpices(index, e)}
-                    />
-                  </label>
-                  <button type='button' onClick={() => removeSpice(index)}>
-                    Remove Spice
+              <div className='input-box new-picture'>
+                <label className='upload-button' htmlFor='inputFile'>
+                  Upload Image
+                </label>
+                <input
+                  id='inputFile'
+                  type='file'
+                  accept='image/*'
+                  name='image'
+                  onChange={handleChange}
+                />
+              </div>
+              <textarea
+                type='text'
+                name='description'
+                placeholder='Description'
+                className='input-box new-description'
+                value={formData.description}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='meat-rub'>
+              <fieldset className='meat-fields'>
+                <legend>
+                  <h3>Meat</h3>
+                </legend>
+                <input
+                  className='input-box'
+                  type='text'
+                  name='typeOfCut'
+                  placeholder='Type of Cut'
+                  data-section='meat'
+                  value={formData.meat.typeOfCut}
+                  onChange={handleChange}
+                />
+                <input
+                  className='input-box'
+                  type='number'
+                  name='weightInGrams'
+                  placeholder='Weight (grams)'
+                  data-section='meat'
+                  value={formData.meat.weightInGrams}
+                  onChange={handleChange}
+                />
+                <input
+                  className='input-box'
+                  type='number'
+                  name='internalTemp'
+                  placeholder='Internal Temp. (°C)'
+                  data-section='meat'
+                  value={formData.meat.internalTemp}
+                  onChange={handleChange}
+                />
+                <input
+                  className='input-box'
+                  type='number'
+                  name='ambientTemp'
+                  placeholder='Ambient Temp. (°C)'
+                  data-section='meat'
+                  value={formData.meat.ambientTemp}
+                  onChange={handleChange}
+                />
+                <select
+                  className='input-box meat-type'
+                  name='meatType'
+                  value={formData.meat.meatType}
+                  onChange={handleChange}
+                  data-section='meat'
+                >
+                  <option selected>Meat Type</option>
+                  <option value='BEEF'>Beef</option>
+                  <option value='PORK'>Pork</option>
+                  <option value='CHICKEN'>Chicken</option>
+                  <option value='LAMB'>Lamb</option>
+                  <option value='FISH'>Fish</option>
+                  <option value='SEAFOOD'>Seafood</option>
+                </select>
+              </fieldset>
+              <fieldset className='rub-fields'>
+                <legend>
+                  <h3>Rub</h3>
+                </legend>
+                <input
+                  className='input-box'
+                  type='text'
+                  name='name'
+                  placeholder='Name'
+                  data-section='rub'
+                  value={formData.rub.name}
+                  onChange={handleChange}
+                />
+                <fieldset className='spice-fields'>
+                  <legend>
+                    <h4>Spices</h4>
+                  </legend>
+                  {formData.rub.spices.map((spice, index) => (
+                    <div className='spice' key={index}>
+                      <input
+                        className='input-box spice-names'
+                        type='text'
+                        name='name'
+                        placeholder='Spice Name'
+                        value={spice.name}
+                        onChange={(e) => handleSpices(index, e)}
+                      />
+                      <input
+                        className='input-box spice-weights'
+                        type='number'
+                        name='weightInGrams'
+                        placeholder='Weight (grams)'
+                        value={spice.weightInGrams}
+                        onChange={(e) => handleSpices(index, e)}
+                      />
+                      <button
+                        className='remove-spice-btn'
+                        type='button'
+                        onClick={() => removeSpice(index)}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    className='add-spice-btn'
+                    type='button'
+                    onClick={addSpice}
+                  >
+                    Add Spice
                   </button>
-                </div>
-              ))}
-              <button type='button' onClick={addSpice}>
-                Add Spice
-              </button>
-            </fieldset>
-          </fieldset>
-          <button type='submit'>Letsgo</button>
-        </form>
+                </fieldset>
+              </fieldset>
+            </div>
+            <button className='new-meal-submit' type='submit'>
+              Let's cook it
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   )

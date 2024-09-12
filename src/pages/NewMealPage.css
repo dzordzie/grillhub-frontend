@@ -1,0 +1,362 @@
+.new-meal-wrapper {
+  padding: 0 5rem;
+  padding-bottom: 5rem;
+}
+
+.new-meal {
+  position: relative;
+  margin-top: 5rem;
+  padding: 3rem;
+  outline: 0.4rem double var(--semidark);
+  outline-offset: -0.35rem;
+}
+
+.new-meal-heading {
+  position: absolute;
+  top: -1.75rem;
+  left: 1.5rem;
+  background-color: var(--light);
+  color: var(--dark);
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-right: 1.5rem;
+  outline: 0.2rem dashed var(--grey);
+  outline-offset: -0.2rem;
+}
+
+.new-meal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-meal-info {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    'new-name new-picture'
+    'new-description new-description';
+  grid-template-rows: 2.5rem 12.5rem;
+  grid-template-columns: 11rem auto;
+  gap: 0.5rem 1rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 0.15rem dashed var(--semilight);
+}
+
+.new-description,
+.new-description:-webkit-autofill,
+textarea,
+textarea:-webkit-autofill {
+  box-sizing: border-box;
+  padding-top: 0.6rem;
+  resize: none;
+  height: 100%;
+}
+
+.new-meal .input-box {
+  text-align: left;
+}
+
+.new-picture {
+  grid-area: new-picture;
+  aspect-ratio: 1/1;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  padding: 0;
+}
+
+#inputFile {
+  display: none;
+}
+
+.upload-button {
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: 'Lusitana', serif;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0 1rem;
+  width: 100%;
+  background-color: transparent;
+  color: var(--semidark);
+  align-content: center;
+}
+
+.file-selected {
+  margin-left: 1rem;
+  color: var(--dark);
+}
+
+.upload-button:hover,
+.upload-button:focus,
+.upload-button:active {
+  background-color: var(--light);
+  cursor: pointer;
+}
+
+.new-name {
+  grid-area: new-name;
+}
+
+.new-description {
+  grid-area: new-description;
+}
+
+.meat-rub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  gap: 2rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 0.15rem dashed var(--semilight);
+  width: 100%;
+}
+
+.meat-rub legend {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.meat-rub fieldset:not(.spice-fields) {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.75rem;
+  padding-top: 0.75rem;
+  border: 0.15rem dashed var(--dark);
+}
+
+.meat-rub .rub-fields {
+  justify-content: space-between;
+}
+
+.meat-rub .input-box {
+  box-sizing: border-box;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.meat-rub .input-box:last-child {
+  margin-bottom: 0;
+}
+
+.spice-fields {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  padding-top: 0.25rem;
+  border: 2px dashed var(--semilight);
+  width: 100%;
+  height: 75%;
+}
+
+.spice {
+  display: grid;
+  grid-template-areas:
+    'spice-names remove-spice-btn'
+    'spice-weight remove-spice-btn';
+  grid-template-rows: 1.75rem 1.75rem;
+  grid-template-columns: 80% auto;
+  gap: 0.25rem;
+  padding-bottom: 0.75rem;
+  padding-top: 0.5rem;
+  border-bottom: 0.15rem dashed var(--grey);
+}
+
+.spice-names textarea {
+  grid-area: spice-names;
+}
+
+.spice-weights textarea {
+  grid-area: spice-weights;
+}
+
+.spice-fields .input-box,
+.spice-fields .input-box:-webkit-autofill,
+textarea,
+textarea:-webkit-autofill {
+  outline: 1px dashed var(--light);
+  outline-offset: -0.2rem;
+  font-size: 0.75rem;
+  height: 1.75rem;
+}
+
+.spice-fields .input-box:focus,
+.spice-fields .input-box:hover,
+.spice-fields .input-box:-webkit-autofill:hover,
+.spice-fields .input-box:-webkit-autofill:focus,
+.spice-fields .input-box:-webkit-autofill:active,
+textarea:focus,
+textarea:hover,
+textarea:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--light) inset !important;
+  outline: 1px dashed var(--grey);
+  outline-offset: -0.2rem;
+}
+
+.add-spice-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: 1.75rem;
+  width: 100%;
+  background-color: var(--light);
+  outline: 0.125rem dashed var(--semilight);
+  outline-offset: -0.25rem;
+  margin-top: 0.75rem;
+}
+
+.add-spice-btn:hover,
+.add-spice-btn:focus {
+  color: var(--dark);
+  background-color: var(--semilight);
+  outline: 0.125rem dashed var(--grey);
+  outline-offset: -0.25rem;
+  cursor: pointer;
+}
+
+.remove-spice-btn {
+  grid-area: remove-spice-btn;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--semidark);
+}
+
+.add-spice-btn:hover,
+.add-spice-btn:focus {
+  color: var(--dark);
+  background-color: var(--semilight);
+  outline: 0.125rem dashed var(--grey);
+  outline-offset: -0.25rem;
+  cursor: pointer;
+}
+
+.remove-spice-btn:hover,
+.remove-spice-btn:active {
+  cursor: pointer;
+  background-color: var(--semilight);
+  color: var(--dark);
+}
+
+.new-meal-submit {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  height: 3.5rem;
+  width: 100%;
+  background-color: var(--light);
+  outline: 0.125rem dashed var(--semilight);
+  outline-offset: -0.375rem;
+}
+
+.new-meal-submit:hover,
+.new-meal-submit:focus {
+  color: var(--dark);
+  background-color: var(--semilight);
+  outline: 0.125rem dashed var(--grey);
+  outline-offset: -0.375rem;
+  cursor: pointer;
+}
+
+/* =================== RESPONSIVE ======================= */
+
+@media screen and (max-width: 800px) {
+  .new-meal-wrapper {
+    padding: 0 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input-box,
+  .upload-button {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .new-meal-wrapper {
+    padding: 0;
+    margin: 0 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .new-meal-heading {
+    box-sizing: border-box;
+    top: clamp(-1.375rem, 3.85vw, -1.75rem);
+    left: 6%;
+    width: 88%;
+    text-align: center;
+    font-size: clamp(1.125rem, 4.3vw, 1.75rem);
+  }
+
+  .new-meal-info {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+      'new-name'
+      'new-picture'
+      'new-description';
+    grid-template-rows: 2.5rem 2.5rem 12.5rem;
+    grid-template-columns: auto;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .meat-rub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .meat-rub fieldset:not(.spice-fields) {
+    max-width: 20rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .new-meal-wrapper {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+
+  .new-meal {
+    padding: clamp(2rem, 9.25vw, 3rem);
+    margin-top: 3rem;
+  }
+
+  .new-meal-heading {
+    top: clamp(-1rem, 3.85vw, -1.75rem);
+    font-size: clamp(1rem, 4.3vw, 1.75rem);
+  }
+
+  .new-meal-info {
+    grid-template-rows: 2.25rem 2.25rem 12rem;
+  }
+
+  .upload-button {
+    height: 2.25rem;
+  }
+
+  .meat-rub .input-box {
+    height: 2.25rem;
+  }
+
+  .spice {
+    grid-template-rows: 1.5rem 1.5rem;
+  }
+
+  .spice-fields .input-box,
+  .spice-fields .input-box:-webkit-autofill,
+  textarea,
+  textarea:-webkit-autofill {
+    font-size: 0.6875rem;
+    height: 1.5rem;
+  }
+}

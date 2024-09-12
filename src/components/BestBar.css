@@ -1,6 +1,6 @@
 .best-bar {
   position: absolute;
-  top: 9rem;
+  top: 8rem;
   right: clamp(2rem, 5rem, 4vw);
   max-width: clamp(14rem, 15vw, 18rem);
 }

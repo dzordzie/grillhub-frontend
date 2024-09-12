@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
+import './MainNavigation.css'
 import ApiService from '../service/ApiService'
 import grillOpened from '../assets/grill-opened.svg'
 import grillClosed from '../assets/grill-closed.svg'
@@ -25,12 +26,17 @@ function MainNavigation() {
     }
   }
 
+  function hideMenu() {
+    const checkbox = document.getElementById('check')
+    checkbox.checked = false
+  }
+
   if (!accessToken || accessToken === null || accessToken === 'null') {
     return (
       <nav className='main-nav'>
-        <NavLink to='/login' className='login-button'>
+        <Link to='/login' className='login-button'>
           LogIn
-        </NavLink>
+        </Link>
       </nav>
     )
   }
@@ -38,23 +44,42 @@ function MainNavigation() {
   if (role === 'USER') {
     return (
       <nav className='main-nav'>
-        <Link
-          to='/add-new'
-          className='add-button'
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          +
-          <img
-            src={isHovered ? grillOpened : grillClosed}
-            alt='add-new'
-            className='add-new'
-          />
-        </Link>
-        <Link to='/profile'>Profile</Link>
-        <Link to='/' onClick={logOut}>
+        <input type='checkbox' id='check' />
+        <span className='menu'>
+          <Link
+            to='/add-new'
+            className='add-button'
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={hideMenu}
+          >
+            +
+            <img
+              src={isHovered ? grillOpened : grillClosed}
+              alt='add-new'
+              className='add-new'
+            />
+          </Link>
+          <Link to='/profile' onClick={hideMenu}>
+            Profile
+          </Link>
+          <Link
+            to='/'
+            className='logout-btn'
+            onClick={() => {
+              logOut()
+              hideMenu()
+            }}
+          >
+            ↪
+          </Link>
+        </span>
+        <label htmlFor='check' className='open-menu'>
+          ☰
+        </label>
+        <label htmlFor='check' className='close-menu'>
           ✕
-        </Link>
+        </label>
       </nav>
     )
   }

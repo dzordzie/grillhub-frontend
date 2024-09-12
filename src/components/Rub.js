@@ -18,29 +18,31 @@ function Rub({ rub }) {
   ))
 
   const mealList = meals.map((meal) => (
-    <Link to={`/meal/${meal.id}`} key={meal.id} className='meal-link'>
+    <Link to={`/meal/${meal.id}`} key={meal.id} className='meal-list-link'>
       <h1 className='meal-name-list in_rub'>{meal.name}</h1>
     </Link>
   ))
 
   return (
     <div className='content'>
-      <article className='meal'>
-        <h1 className='meal-name'>{name}</h1>
-        <h2 className='rub-owner'>
-          Owner:
-          <Link to={`/user/${id}`}> {username}</Link>
-        </h2>
-        <section className='rub-info'>
-          <div className='rub'>
-            <ul>{spiceList}</ul>
-          </div>
-          <div className='recipes'>
-            <h2 className='meals-heading'>You can find in this meals:</h2>
-            <ul className='meal-list'>{mealList}</ul>
-          </div>
-        </section>
-      </article>
+      <div className='rub-wrapper'>
+        <article className='rub-card'>
+          <h1 className='rub-card-name'>{name}</h1>
+          <h2 className='rub-owner'>
+            Owner:
+            <Link to={`/user/${id}`}> {username}</Link>
+          </h2>
+          <section className='rub-info'>
+            <div className='rub card'>
+              <ul>{spiceList}</ul>
+            </div>
+            <div className='recipes'>
+              <h2 className='meals-heading'>You can find in this meals:</h2>
+              <ul className='meal-list'>{mealList}</ul>
+            </div>
+          </section>
+        </article>
+      </div>
     </div>
   )
 }

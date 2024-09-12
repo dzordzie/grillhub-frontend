@@ -42,8 +42,8 @@ function Meal({ meal }) {
   const backgroundImage = meatTypeToImage[meatType] || beefImg
 
   const pageStyles = {
-    background: `url(${backgroundImage}) right 6rem bottom 5.3rem no-repeat`,
-    backgroundSize: 'auto 10rem',
+    background: `url(${backgroundImage}) right 1rem bottom 0.35rem no-repeat`,
+    backgroundSize: '30vh auto',
   }
 
   const imageSrc = imageBase64 || picture
@@ -53,9 +53,9 @@ function Meal({ meal }) {
 
   return (
     <div className='content'>
-      <div className='meal-wrapper' style={pageStyles}>
-        <article className='meal'>
-          <h1 className='meal-name'>{name}</h1>
+      <div className='meal-wrapper'>
+        <article className='meal' style={pageStyles}>
+          <h1 className='meal-name meal-heading'>{name}</h1>
           <section className='meal-info'>
             <div className='meal-picture-container'>
               <img

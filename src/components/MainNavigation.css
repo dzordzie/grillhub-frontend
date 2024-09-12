@@ -1,0 +1,92 @@
+.main-nav {
+  margin-right: clamp(2rem, 5rem, 4vw);
+  text-align: end;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menu a:nth-child(2) {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.open-menu,
+.close-menu {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.5rem;
+  width: 1.3125rem;
+  display: none;
+  font-weight: 900;
+}
+
+.logout-btn {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+#check {
+  display: none;
+}
+
+.add-button {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.add-new {
+  height: 2.25rem;
+  width: auto;
+  margin-left: 0.25rem;
+}
+
+/* =================== RESPONSIVE ======================= */
+
+@media screen and (max-width: 730px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 3rem;
+    right: -100%;
+    z-index: 100;
+    opacity: 0.95;
+    background-color: var(--semilight);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .open-menu {
+    display: block;
+  }
+
+  .menu a:nth-child(2) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .menu a {
+    margin: 0;
+    padding: 1.25rem 1rem;
+  }
+
+  #check:checked ~ .menu {
+    right: 0;
+  }
+
+  #check:checked ~ .close-menu {
+    display: block;
+  }
+
+  #check:checked ~ .open-menu {
+    display: none;
+  }
+}

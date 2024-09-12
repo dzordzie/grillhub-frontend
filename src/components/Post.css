@@ -32,12 +32,13 @@
   grid-template-rows: 14rem 3rem;
   grid-template-columns: 17rem auto;
   column-gap: 2rem;
+  margin-top: -3.75rem;
 }
 
 .post-picture-container {
   grid-area: meal-picture;
   width: 17rem;
-  height: 17rem;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,14 +63,21 @@
   margin-right: 0.25rem;
 }
 
-.meal-name {
+.meal-link {
+  position: relative;
+  top: -4.5rem;
+  left: -1.5rem;
+  display: inline-block;
+}
+
+.meal-name,
+.post-name,
+.user-name,
+.rub-card-name {
   background-color: var(--light);
   color: var(--dark);
   font-size: 2rem;
-  position: absolute;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-  top: -1.6rem;
-  left: 1.5rem;
   margin-right: 1.5rem;
   outline: 0.2rem dashed var(--grey);
   outline-offset: -0.2rem;
@@ -134,6 +142,11 @@
   .post-wrapper {
     padding-left: clamp(5rem, 3vw, 6rem);
   }
+
+  .meal-name {
+    font-size: clamp(1.5rem, 3.7vw, 2rem);
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -158,10 +171,35 @@
     flex-direction: column;
   }
 
-  .post-picture {
-    height: 100%;
+  .post-picture-container {
     width: 100%;
-    margin-bottom: 1.5rem;
-    outline: 0.4rem double var(--semilight);
+  }
+
+  .post-description {
+    margin-top: 2rem;
+  }
+
+  .post-footer {
+    margin-top: 1.5rem;
+  }
+
+  .meal-name {
+    margin-right: 0;
+    width: calc(100% + 1.5rem);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .post-wrapper {
+    padding: 0;
+    padding-bottom: 3.75rem;
+  }
+
+  .post-wrapper:last-child {
+    padding-bottom: 6.75rem;
+  }
+
+  .post {
+    padding: clamp(2rem, 9.25vw, 3rem);
   }
 }
