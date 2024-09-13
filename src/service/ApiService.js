@@ -90,9 +90,7 @@ class ApiService {
             errorData.message || `Request failed: ${response.status}`
           )
         } catch {
-          throw new Error(
-            `Request failed: ${response.status} - ${responseText}`
-          )
+          throw new Error(responseText)
         }
       }
       const responseText = await response.text()

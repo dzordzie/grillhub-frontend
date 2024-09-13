@@ -60,11 +60,13 @@ function SignUpForm() {
           setMessageForUser(response.message)
           formRef.current.reset()
           resetStates()
-          navigate('/login')
+          setInterval(() => {
+            navigate('/login')
+          }, 2000)
         }
       } catch (error) {
-        console.error('Error during registration:', error)
-        setMessageForUser('Error during registration')
+        const errorData = JSON.parse(error.message)
+        setMessageForUser(errorData.message)
       }
     } else if (isFormEmpty()) {
       setMessageForUser('Please fill the form!')
@@ -115,7 +117,7 @@ function SignUpForm() {
             id='password'
             type={showPassword ? 'text' : 'password'}
             name='password'
-            pattern='(?=.*[A-Z].*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*-\.].*[!@#$%^&*-\.])(?!.*\s).{8,16}'
+            pattern='(?=.*[A-Z].*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*-,.\.].*[!@#$%^&*-,.\.])(?!.*\s).{8,16}'
             onChange={handleUser}
             value={user.password}
             placeholder='Password'
