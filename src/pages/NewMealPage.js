@@ -1,9 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Compressor from 'compressorjs'
 import ApiService from '../service/ApiService'
 import './NewMealPage.css'
+import { use } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function NewMealPage() {
+  const navigate = useNavigate()
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -20,6 +26,20 @@ function NewMealPage() {
     },
     imageBase64: '',
   })
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   const apiService = new ApiService()
 
@@ -120,6 +140,7 @@ function NewMealPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setIsSubmitting(true)
 
     const dataToSend = {
       ...formData,
@@ -129,9 +150,28 @@ function NewMealPage() {
     try {
       await apiService.post('/add-new', dataToSend)
       alert('Successfully sent')
+      setFormData({
+        name: '',
+        description: '',
+        meat: {
+          typeOfCut: '',
+          weightInGrams: '',
+          internalTemp: '',
+          ambientTemp: '',
+          meatType: '',
+        },
+        rub: {
+          name: '',
+          spices: [],
+        },
+        imageBase64: '',
+      })
+      setIsSubmitting(false)
+      navigate('/')
     } catch (error) {
       console.error('Problem with API request:', error)
       alert('Failed to send data')
+      setIsSubmitting(false)
     }
   }
 
@@ -282,8 +322,12 @@ function NewMealPage() {
                 </fieldset>
               </fieldset>
             </div>
-            <button className='new-meal-submit' type='submit'>
-              Let's cook it
+            <button
+              className='new-meal-submit'
+              type='submit'
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending' : "Let's cook it"}
             </button>
           </form>
         </div>
