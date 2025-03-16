@@ -26,10 +26,13 @@ function NewMealPage() {
     imageBase64: '',
   })
 
+
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Enter') {
-        event.preventDefault()
+      const isTextArea = event.target.tagName === 'TEXTAREA'
+
+      if (!isTextArea && event.key === 'Enter') {
+        event.preventDefault() // Zablokovanie Enteru na odoslanie formulára
       }
     }
 
