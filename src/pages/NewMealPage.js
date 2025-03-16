@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Compressor from 'compressorjs'
 import ApiService from '../service/ApiService'
 import './NewMealPage.css'
-import { use } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function NewMealPage() {
