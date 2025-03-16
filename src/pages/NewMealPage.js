@@ -151,7 +151,6 @@ function NewMealPage() {
 
     try {
       await apiService.post('/add-new', dataToSend)
-      alert('Successfully sent')
       setFormData({
         name: '',
         description: '',
@@ -172,7 +171,6 @@ function NewMealPage() {
       navigate('/')
     } catch (error) {
       console.error('Problem with API request:', error)
-      alert('Failed to send data')
       setIsSubmitting(false)
     }
   }
